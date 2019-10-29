@@ -38,5 +38,11 @@ public class AccountService implements IAccountService {
 		return acc.getHash().equals(pass);
 	}
 
-
+	@Override
+	public void print() {
+		for(IAccount acc : m_accounts){
+			System.out.println(acc.getEmail());
+			System.out.println(acc.getHash());
+		}
+	}
 }
