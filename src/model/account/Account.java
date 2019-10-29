@@ -7,6 +7,17 @@ public class Account implements IAccount {
 	String m_username;
 	String m_hash;
 
+	public Account() {}
+
+	public Account(AccountType type, String email, String username, String hash) {
+		this.m_id = 0;
+		this.m_email = email;
+		this.m_type = type;
+		this.m_username = username;
+		this.m_hash = hash;
+	}
+
+
 	@Override
 	public void setID(int id)
 	{

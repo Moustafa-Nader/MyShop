@@ -1,5 +1,6 @@
 package service.account;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 import model.account.Account;
@@ -33,7 +34,9 @@ public class AccountService implements IAccountService {
 	@Override
 	public boolean checkPassword(IAccount acc, String pass) {
 		if(acc == null) return false;
+		System.out.println("Account Added");
 		return acc.getHash().equals(pass);
 	}
+
 
 }

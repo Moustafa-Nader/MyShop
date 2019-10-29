@@ -6,4 +6,5 @@ import context.IContext;
 
 public interface IRequestHandler {
 	public void handle(IContext ctx) throws IOException;
+	//TODO htmlreader function public String htmlRead(String path);
 }
