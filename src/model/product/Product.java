@@ -6,8 +6,14 @@ public class Product implements IProduct {
     String m_name;
     double m_price;
     String m_category;
-
-    @Override
+    public Product(String Brand, String Name, Double Price, String Cat) {
+        this.m_id = 0 ;
+        this.m_brand = Brand ;
+        this.m_name = Name;
+        this.m_price = Price;
+        this.m_category = Cat;
+	}
+	@Override
     public int getID() {
         return this.m_id ;
     }
