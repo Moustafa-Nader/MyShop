@@ -6,11 +6,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class HomeHandler implements IRequestHandler {
+public class SignUpHandler implements IRequestHandler {
     @Override
     public void handle(IContext ctx) throws IOException {
         String output = "";
-        File homeFile = new File("src/home.html");
+        File homeFile = new File("src/signup.html");
         Scanner scanner = new Scanner(homeFile);
         while(scanner.hasNextLine())
             output += scanner.nextLine();
