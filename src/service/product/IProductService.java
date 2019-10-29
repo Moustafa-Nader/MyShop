@@ -1,5 +1,7 @@
 package service.product;
 
-public interface IProductService {
+import model.product.IProduct;
 
+public interface IProductService {
+	public void addProduct(IProduct prod);
 }
