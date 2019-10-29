@@ -9,11 +9,12 @@ public class Main {
 	public static void main(String args[]) throws IOException
 	{
 		Server server = new Server(8080);
+		AccountService accountService = new AccountService();
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
-		server.addHandler("/login", new LoginHandler(new AccountService()));
+		server.addHandler("/login", new LoginHandler(accountService));
 		server.addHandler("/signup", new SignUpHandler());
-		server.addHandler("/register", new RegisterHandler(new AccountService()));
+		server.addHandler("/register", new RegisterHandler(accountService));
 		server.start();
 	}
 }
