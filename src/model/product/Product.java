@@ -51,14 +51,14 @@ public class Product implements IProduct {
     }
 
     @Override
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.m_category = category ;
 
     }
 
     @Override
-    public void setBrand(String store) {
-        this.m_brand = store ;
+    public void setBrand(String brand) {
+        this.m_brand = brand;
 
     }
 
