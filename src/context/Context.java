@@ -86,4 +86,11 @@ public class Context implements IContext {
 	{
 		addHeader("Set-Cookie", cookie.toString());
 	}
+	
+	@Override
+	public void redirect(String location) throws IOException
+	{
+		addHeader("Location", location);
+		m_httpExchange.sendResponseHeaders(302, 0);
+	}
 }

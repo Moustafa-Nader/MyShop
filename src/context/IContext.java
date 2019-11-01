@@ -13,4 +13,5 @@ public interface IContext {
 	public void addHeader(String headerName, String value);
 	public ICookie getCookie(String key);
 	public void setCookie(ICookie cookie);
+	public void redirect(String location) throws IOException;
 }
