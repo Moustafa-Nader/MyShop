@@ -6,6 +6,7 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
 import context.Context;
+import context.IContext;
 import requesthandler.IRequestHandler;
 
 public class HttpHandlerAdapter implements HttpHandler {
@@ -19,7 +20,9 @@ public class HttpHandlerAdapter implements HttpHandler {
 	@Override
 	public void handle(HttpExchange httpExchange) throws IOException
 	{
-		m_handler.handle(new Context(httpExchange));
+		IContext ctx = new Context(httpExchange);
+		m_handler.getSessionManager().load(ctx);
+		m_handler.handle(ctx);
 	}
 
 }
