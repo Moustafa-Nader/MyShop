@@ -7,7 +7,7 @@ import service.account.IAccountService;
 
 import java.io.IOException;
 
-public class LoginHandler implements IRequestHandler {
+public class LoginHandler extends RequestHandlerBase {
     IAccountService m_service;
     public LoginHandler(IAccountService service){ this.m_service = service; }
     @Override
@@ -17,7 +17,7 @@ public class LoginHandler implements IRequestHandler {
         System.out.println(ctx.getParam("m_password"));
         IAccount account = m_service.getByEmail(ctx.getParam("m_email"));
         if(m_service.checkPassword(account,ctx.getParam("m_password"))) {
-            ctx.setCookie(new Cookie("email", ctx.getParam("m_email")));
+            ctx.getSession().set("user", account);
         	ctx.write("<html>Thanks :)</html>".getBytes());
         } else {
             ctx.write("<html>Sorry, Incorrect Username or Password :)</html>".getBytes());
