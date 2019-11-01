@@ -3,17 +3,23 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.sun.net.httpserver.HttpExchange;
 
+import cookie.Cookie;
+import cookie.ICookie;
+
 public class Context implements IContext {
 	HttpExchange m_httpExchange;
 	Map<String,String> m_parameters = new HashMap<String,String>();
-
+	Map<String,ICookie> m_cookies = new HashMap<String, ICookie>();
+	
 	public Context(HttpExchange httpExchange)
 	{
 		this.m_httpExchange = httpExchange;
+		parseCookies();
 	}
 
 	@Override
@@ -43,5 +49,41 @@ public class Context implements IContext {
 			}
 		}
 
+	}
+	
+	@Override
+	public List<String> getHeader(String headerName)
+	{
+		return m_httpExchange.getRequestHeaders().get(headerName);
+	}
+	
+	@Override
+	public void addHeader(String headerName, String value)
+	{
+		m_httpExchange.getResponseHeaders().add(headerName, value);
+	}
+	
+	private void parseCookies()
+	{
+		if(getHeader("Cookie") == null)
+			return;
+		String[] cookiesStr = getHeader("Cookie").get(0).split(";\\s");
+		for(String cookieData : cookiesStr)
+		{
+			String[] data = cookieData.split("=");
+			m_cookies.put(data[0], new Cookie(data[0], data[1]));
+		}
+	}
+	
+	@Override
+	public ICookie getCookie(String key)
+	{
+		return m_cookies.get(key);
+	}
+	
+	@Override
+	public void setCookie(ICookie cookie)
+	{
+		addHeader("Set-Cookie", cookie.toString());
 	}
 }
