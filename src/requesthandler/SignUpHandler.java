@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class SignUpHandler implements IRequestHandler {
+public class SignUpHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
         String output = "";
