@@ -3,7 +3,7 @@ import java.io.IOException;
 
 import context.IContext;
 
-public class HelloHandler implements IRequestHandler {
+public class HelloHandler extends RequestHandlerBase {
 
 	@Override
 	public void handle(IContext ctx) throws IOException

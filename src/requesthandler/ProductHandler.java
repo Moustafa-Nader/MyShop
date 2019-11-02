@@ -4,7 +4,7 @@ import model.product.*;
 import service.product.IProductService;
 import java.io.IOException;
 
-public class ProductHandler implements IRequestHandler {
+public class ProductHandler extends RequestHandlerBase {
     IProductService m_service;
 
     public ProductHandler(IProductService service) {

@@ -10,11 +10,14 @@ import com.sun.net.httpserver.HttpExchange;
 
 import cookie.Cookie;
 import cookie.ICookie;
+import model.account.IAccount;
+import session.ISession;
 
 public class Context implements IContext {
 	HttpExchange m_httpExchange;
 	Map<String,String> m_parameters = new HashMap<String,String>();
 	Map<String,ICookie> m_cookies = new HashMap<String, ICookie>();
+	ISession m_session;
 	
 	public Context(HttpExchange httpExchange)
 	{
@@ -86,4 +89,30 @@ public class Context implements IContext {
 	{
 		addHeader("Set-Cookie", cookie.toString());
 	}
+	
+	@Override
+	public void redirect(String location) throws IOException
+	{
+		addHeader("Location", location);
+		m_httpExchange.sendResponseHeaders(302, 0);
+	}
+
+	@Override
+	public ISession getSession() {
+		return m_session;
+	}
+
+	@Override
+	public void setSession(ISession session) {
+		m_session = session;
+	}
+
+	@Override
+	public IAccount getUser() {
+    	IAccount account = null;
+    	if(getSession().get("user") instanceof IAccount)
+    		account = (IAccount) getSession().get("user");
+    	return account;
+	}
+
 }

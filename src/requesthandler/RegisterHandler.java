@@ -9,7 +9,7 @@ import service.account.IAccountService;
 
 import java.io.IOException;
 
-public class RegisterHandler implements IRequestHandler {
+public class RegisterHandler extends RequestHandlerBase {
 
     IAccountService m_service;
 
