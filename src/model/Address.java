@@ -13,35 +13,35 @@ public class Address {
         this.m_apartmentno = apartmentno;
     }
 
-    public int getM_apartmentno() {
+    public int getApartmentno() {
         return m_apartmentno;
     }
 
-    public void setM_apartmentno(int m_apartmentno) {
+    public void setApartmentno(int m_apartmentno) {
         this.m_apartmentno = m_apartmentno;
     }
 
-    public int getM_buildingno() {
+    public int getBuildingno() {
         return m_buildingno;
     }
 
-    public void setM_buildingno(int m_buildingno) {
+    public void setBuildingno(int m_buildingno) {
         this.m_buildingno = m_buildingno;
     }
 
-    public String getM_streetname() {
+    public String getStreetname() {
         return m_streetname;
     }
 
-    public void setM_streetname(String m_streetname) {
+    public void setStreetname(String m_streetname) {
         this.m_streetname = m_streetname;
     }
 
-    public String getM_city() {
+    public String getCity() {
         return m_city;
     }
 
-    public void setM_city(String m_city) {
+    public void setCity(String m_city) {
         this.m_city = m_city;
     }
 }

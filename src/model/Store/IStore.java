@@ -4,7 +4,7 @@ import model.Address;
 
 public interface IStore {
 
-    public String getM_name();
+    public String getName();
 
     public void setName(String m_name);
 
