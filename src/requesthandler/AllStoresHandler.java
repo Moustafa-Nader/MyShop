@@ -70,7 +70,7 @@ public class AllStoresHandler extends RequestHandlerBase {
                 "\t</div>\n";
         for(int i = 0; i < stores.size(); i++) {
             htmlPage += "\t<div class=\"form-box1\">\n" +
-            "\t\t<a href=\"/store/" + stores.get(i).getName() +"\"><label>" + stores.get(i).getName() + "</label>" +
+            "\t\t<a href=\"/viewstore/" + stores.get(i).getName() +"\"><label>" + stores.get(i).getName() + "</label>" +
             "</a>\n\t</div>\n";
         }
 
