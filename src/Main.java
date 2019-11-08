@@ -23,6 +23,7 @@ public class Main {
 		server.addHandler("/products", new ProductHandler(new ProductService()));
 		server.addHandler("/addstore", new AddStorePageHandler());
 		server.addHandler("/addstoreq", new StoreHandler(storeService));
+		server.addHandler("/allstores", new AllStoresHandler(storeService));
 		server.start();
 		
 	}

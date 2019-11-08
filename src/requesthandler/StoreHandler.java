@@ -19,9 +19,10 @@ public class StoreHandler extends RequestHandlerBase {
 
     @Override
     public void handle(IContext ctx) throws IOException {
-        System.out.println("Started Handling");
+
         ctx.parse();
-        if(!ctx.getUser().getType().equals(AccountType.OWNER)) {
+        if(ctx.getUser().getType().equals(AccountType.OWNER)) {
+            System.out.println("Started Handling");
             StoreType input_type = StoreType.valueOf(ctx.getParam("m_type"));
             Address input_address = null;
             if (input_type.equals(StoreType.ONSITE)) {
