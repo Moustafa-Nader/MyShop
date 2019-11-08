@@ -3,9 +3,10 @@ package model.Store;
 import model.Address;
 
 public class Store implements IStore {
+    private int m_id;
     private String m_name;
     private String m_country;
-    private String m_ownerid;
+    private int m_ownerid;
     private StoreType m_type;
     private Address m_address;
 
@@ -30,12 +31,12 @@ public class Store implements IStore {
     }
 
     @Override
-    public String getM_ownerid() {
+    public int getM_ownerid() {
         return m_ownerid;
     }
 
     @Override
-    public void setM_ownerid(String m_ownerid) {
+    public void setM_ownerid(int m_ownerid) {
         this.m_ownerid = m_ownerid;
     }
 

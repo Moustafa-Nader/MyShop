@@ -12,9 +12,9 @@ public interface IStore {
 
     public void setM_country(String m_country);
 
-    public String getM_ownerid();
+    public int getM_ownerid();
 
-    public void setM_ownerid(String m_ownerid);
+    public void setM_ownerid(int m_ownerid);
 
     public StoreType getM_type();
 
