@@ -16,12 +16,8 @@ public class AddProductPageHandler extends RequestHandlerBase {
     	}
     		
 
-        String output = "";
-        File homeFile = new File("src/product.html");
-        Scanner scanner = new Scanner(homeFile);
-        while(scanner.hasNextLine())
-            output += scanner.nextLine();
-
+        String output = m_resources.htmlRead("src/product.html");
+       
         ctx.write(output.getBytes());
 
     }

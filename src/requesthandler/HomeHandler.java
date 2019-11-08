@@ -9,12 +9,7 @@ import java.util.Scanner;
 public class HomeHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
-        String output = "";
-        File homeFile = new File("src/home.html");
-        Scanner scanner = new Scanner(homeFile);
-        while(scanner.hasNextLine())
-            output += scanner.nextLine();
-
+        String output =m_resources.htmlRead("src/home.html");
         ctx.write(output.getBytes());
     }
 }

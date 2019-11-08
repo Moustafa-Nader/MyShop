@@ -19,6 +19,5 @@ public class Main {
 		server.addHandler("/addproduct", new AddProductPageHandler());
 		server.addHandler("/products", new ProductHandler(new ProductService()));
 		server.start();
-		
 	}
 }
