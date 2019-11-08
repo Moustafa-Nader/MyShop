@@ -18,12 +18,7 @@ public class HomeHandler extends RequestHandlerBase {
     }
     
     private void showLogin(IContext ctx) throws IOException {
-        String output = "";
-        File homeFile = new File("src/login_form.html");
-        Scanner scanner = new Scanner(homeFile);
-        while(scanner.hasNextLine())
-            output += scanner.nextLine();
-
+        String output = m_resources.htmlRead("/src/Components/login_form.html");
         ctx.write(output.getBytes());
     }
     
