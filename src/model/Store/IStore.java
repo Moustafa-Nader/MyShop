@@ -6,21 +6,21 @@ public interface IStore {
 
     public String getM_name();
 
-    public void setM_name(String m_name);
+    public void setName(String m_name);
 
-    public String getM_country();
+    public String getCountry();
 
-    public void setM_country(String m_country);
+    public void setCountry(String m_country);
 
-    public int getM_ownerid();
+    public int getOwnerid();
 
-    public void setM_ownerid(int m_ownerid);
+    public void setOwnerid(int m_ownerid);
 
-    public StoreType getM_type();
+    public StoreType getType();
 
-    public void setM_type(StoreType m_type);
+    public void setType(StoreType m_type);
 
-    public Address getM_address();
+    public Address getAddress();
 
-    public void setM_address(Address m_address);
+    public void setAddress(Address m_address);
 }

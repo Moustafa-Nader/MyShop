@@ -4,9 +4,9 @@ import model.Address;
 
 public class Store implements IStore {
     private int m_id;
+    private int m_ownerid;
     private String m_name;
     private String m_country;
-    private int m_ownerid;
     private StoreType m_type;
     private Address m_address;
 

@@ -2,6 +2,37 @@
 <html>
 <head>
 	<title>Add Store</title>
+	<script>
+		const init = function() {
+		document.getElementById('submitstore').addEventListener('click',addstore);
+		document.getElementById('m_type').addEventListener('click',fixform);
+		console.log("Welcome To Store Addition...");
+		}
+		
+
+		const addstore = function(ev) {
+			ev.preventDefault();
+			document.getElementById('store-form').submit();
+		}
+
+		const fixform = function(ev) {
+			if(document.getElementById('m_type').value == 'online'){
+					document.getElementById('address1').style.display = "none";				
+					document.getElementById('address2').style.display = "none";
+					document.getElementById('address3').style.display = "none";
+					document.getElementById('address4').style.display = "none";
+				} else {
+					document.getElementById('address1').style.display = "block";				
+					document.getElementById('address2').style.display = "block";
+					document.getElementById('address3').style.display = "block";
+					document.getElementById('address4').style.display = "block";
+				}
+		}
+
+
+
+		document.addEventListener('DOMContentLoaded',init);
+	</script>
 	<style type="text/css">
 		.form-box{
             padding: 1rem;
@@ -23,11 +54,13 @@
             padding: 0.25rem 1rem;
         }
         .form-box select{
+        	cursor: pointer;
             font-size: 1rem;
             width: 335px;
             padding: 0.25rem 1rem;
         }
         .form-box option{
+        	cursor: pointer;
             font-size: 1rem;
             width: 300px;
             padding: 0.25rem 1rem;
@@ -39,7 +72,8 @@
             font-size: 1rem;
             border: none;
             padding: 0.25rem 2rem;
-            margin: 0 auto;
+            float: center;
+            margin-left: 10%;
             color: white;
             background-color: cornflowerblue;
             cursor: pointer;
@@ -59,8 +93,8 @@
 		<div class="form-box">
 			<label for="m_type">Store type: </label>
 			<select name="m_type" id="m_type">
-				<option value="online">Online</option>
 				<option value="onsite">Onsite</option>
+				<option value="online">Online</option>
 			</select>
 		</div>
 		<div class ="form-box" id="address1">
@@ -84,7 +118,6 @@
 		</div>
 	</form>
 
-	<script src="storeform.js"></script>
 
 </body>
 </html>
