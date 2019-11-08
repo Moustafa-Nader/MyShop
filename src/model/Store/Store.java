@@ -10,6 +10,15 @@ public class Store implements IStore {
     private StoreType m_type;
     private Address m_address;
 
+    public Store(int ownerid, String name, String country, StoreType type, Address address) {
+        this.m_id = 1;
+        this.m_ownerid = ownerid;
+        this.m_name = name;
+        this.m_country = country;
+        this.m_type = type;
+        this.m_address = address;
+    }
+
     @Override
     public String getName() {
         return m_name;
