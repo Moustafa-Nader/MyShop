@@ -19,7 +19,10 @@ public class RegisterHandler extends RequestHandlerBase {
     }
     @Override
     public void handle(IContext ctx) throws IOException {
-
+    	if(ctx.getUser() != null) {
+    		ctx.redirect("/home");
+    		return;
+    	}
         ctx.parse();
         System.out.println(ctx.getParam("m_email"));
         System.out.println(ctx.getParam("m_password"));
