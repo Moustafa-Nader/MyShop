@@ -1,5 +1,6 @@
 package requesthandler;
 import context.IContext;
+import model.account.AccountType;
 import model.product.*;
 import service.product.IProductService;
 import java.io.IOException;
@@ -13,6 +14,10 @@ public class ProductHandler extends RequestHandlerBase {
 
     @Override
     public void handle(IContext ctx) throws IOException {
+    	if(ctx.getUser() == null || ctx.getUser().getType() != AccountType.ADMIN) {
+    		ctx.redirect("/home");
+    		return;
+    	}
         ctx.parse();
         IProduct product = new Product(ctx.getParam("m_name"), ctx.getParam("m_brand"),
                 Double.valueOf(ctx.getParam("m_price")), ctx.getParam("m_category"));

@@ -15,6 +15,7 @@ public class Main {
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
 		server.addHandler("/signup", new SignUpHandler());
+		server.addHandler("/logout", new LogoutHandler());
 		server.addHandler("/register", new RegisterHandler(accountService));
 		server.addHandler("/addproduct", new AddProductPageHandler());
 		server.addHandler("/products", new ProductHandler(new ProductService()));

@@ -12,6 +12,10 @@ public class LoginHandler extends RequestHandlerBase {
     public LoginHandler(IAccountService service){ this.m_service = service; }
     @Override
     public void handle(IContext ctx) throws IOException {
+    	if(ctx.getUser() != null) {
+    		ctx.redirect("/home");
+    		return;
+    	}
         ctx.parse();
         System.out.println(ctx.getParam("m_email"));
         System.out.println(ctx.getParam("m_password"));
