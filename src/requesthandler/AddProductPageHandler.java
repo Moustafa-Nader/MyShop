@@ -11,13 +11,11 @@ public class AddProductPageHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
     	if(ctx.getUser() == null || ctx.getUser().getType() != AccountType.ADMIN) {
-    		ctx.write("<h1>unauthorized</h1>".getBytes());
+    		ctx.write("<h1>Unauthorized</h1>".getBytes());
     		return;
     	}
-    		
 
         String output = m_resources.htmlRead("/src/Components/product.html");
-       
         ctx.write(output.getBytes());
 
     }
