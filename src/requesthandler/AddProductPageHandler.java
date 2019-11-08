@@ -16,7 +16,7 @@ public class AddProductPageHandler extends RequestHandlerBase {
     	}
     		
 
-        String output = m_resources.htmlRead("src/product.html");
+        String output = m_resources.htmlRead("src/Components/product.html");
        
         ctx.write(output.getBytes());
 

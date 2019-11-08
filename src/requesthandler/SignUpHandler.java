@@ -10,7 +10,7 @@ public class SignUpHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
        // m_resources = new HtmlHandler();
-        String path = "src/signup.html";
+        String path = "src/Components/signup.html";
         ctx.write(m_resources.htmlRead(path).getBytes());
     }
 }
