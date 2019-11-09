@@ -67,6 +67,7 @@ public class AllStoresHandler extends RequestHandlerBase {
                 "\t\t<a href=\"/store/_STORE_NAME_\"><label>_STORE_NAME_</label></a>\n" +
                 "\t</div>\n";
         for(IStore store : m_storeservice.getAllStores()) {
+        	if(store.isPending()) continue;
             htmlPage += "\t<div class=\"form-box1\">\n" +
             "\t\t<a href=\"/viewstore/" + store.getID() +"\"><label>" + store.getName() + "</label>" +
             "</a>\n\t</div>\n";

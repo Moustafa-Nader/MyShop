@@ -4,6 +4,7 @@ import model.Address;
 
 public class Store implements IStore {
     private int m_id;
+    private boolean m_pending;
     private int m_ownerid;
     private String m_name;
     private String m_country;
@@ -11,7 +12,8 @@ public class Store implements IStore {
     private Address m_address;
 
     public Store(int ownerid, String name, String country, StoreType type, Address address) {
-        this.m_ownerid = ownerid;
+        this.m_pending = true;
+    	this.m_ownerid = ownerid;
         this.m_name = name;
         this.m_country = country;
         this.m_type = type;
@@ -76,6 +78,16 @@ public class Store implements IStore {
 	@Override
 	public void setID(int id) {
 		this.m_id = id;
+	}
+
+	@Override
+	public boolean isPending() {
+		return m_pending;
+	}
+
+	@Override
+	public void setPending(boolean pending) {
+		m_pending = pending;
 	}
 
 }

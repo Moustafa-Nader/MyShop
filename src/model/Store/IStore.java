@@ -26,4 +26,8 @@ public interface IStore {
     public Address getAddress();
 
     public void setAddress(Address m_address);
+    
+    public boolean isPending();
+    
+    public void setPending(boolean pending);
 }
