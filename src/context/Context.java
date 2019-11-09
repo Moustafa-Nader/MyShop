@@ -115,4 +115,9 @@ public class Context implements IContext {
     	return account;
 	}
 
+	@Override
+	public HttpExchange getHttpExchange() {
+		return m_httpExchange;
+	}
+
 }
