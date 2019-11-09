@@ -24,6 +24,7 @@ public class Main {
 		server.addHandler("/addstore", new AddStorePageHandler());
 		server.addHandler("/addstoreq", new StoreHandler(storeService));
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
+		server.addHandler("/viewstore", new ViewStoreHandler(storeService));
 		server.start();
 		
 	}

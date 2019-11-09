@@ -29,6 +29,13 @@ public class StoreService implements IStoreService  {
 
         return null;
     }
+    
+    public IStore getStoreByID(int id) {
+        for(int i = 0; i < m_stores.size(); i++)
+            if(m_stores.get(i).getID() == id)
+                return m_stores.get(i);
+        return null;
+    }
 
     @Override
     public ArrayList<IStore> getAllStores() {
