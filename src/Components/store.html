@@ -2,32 +2,6 @@
 <html>
 <head>
 	<title>Add Store</title>
-	<script>
-		const init = function() {
-		document.getElementById('submitstore').addEventListener('click',addstore);
-		document.getElementById('m_type').addEventListener('click',fixform);
-		console.log("Welcome To Store Addition...");
-		}
-		
-		const addstore = function(ev) {
-			ev.preventDefault();
-			document.getElementById('store-form').submit();
-		}
-		const fixform = function(ev) {
-			if(document.getElementById('m_type').value == 'online'){
-					document.getElementById('address1').style.display = "none";				
-					document.getElementById('address2').style.display = "none";
-					document.getElementById('address3').style.display = "none";
-					document.getElementById('address4').style.display = "none";
-				} else {
-					document.getElementById('address1').style.display = "block";				
-					document.getElementById('address2').style.display = "block";
-					document.getElementById('address3').style.display = "block";
-					document.getElementById('address4').style.display = "block";
-				}
-		}
-		document.addEventListener('DOMContentLoaded',init);
-	</script>
 	<style type="text/css">
 		.form-box{
             padding: 1rem;
@@ -113,6 +87,28 @@
 		</div>
 	</form>
 
-
+	<script>
+		const addstore = function(ev) {
+			ev.preventDefault();
+			document.getElementById('store-form').submit();
+		}
+		const fixform = function(ev) {
+			if(document.getElementById('m_type').value == 'ONLINE'){
+					document.getElementById('address1').style.display = "none";				
+					document.getElementById('address2').style.display = "none";
+					document.getElementById('address3').style.display = "none";
+					document.getElementById('address4').style.display = "none";
+				} else {
+					document.getElementById('address1').style.display = "block";				
+					document.getElementById('address2').style.display = "block";
+					document.getElementById('address3').style.display = "block";
+					document.getElementById('address4').style.display = "block";
+				}
+		}
+		
+		document.getElementById('submitstore').addEventListener('click',addstore);
+		document.getElementById('m_type').addEventListener('click',fixform);
+		console.log("Welcome To Store Addition...");
+	</script>
 </body>
 </html>
