@@ -11,7 +11,6 @@ public class Store implements IStore {
     private Address m_address;
 
     public Store(int ownerid, String name, String country, StoreType type, Address address) {
-        this.m_id = 1;
         this.m_ownerid = ownerid;
         this.m_name = name;
         this.m_country = country;
@@ -68,5 +67,15 @@ public class Store implements IStore {
     public void setAddress(Address m_address) {
         this.m_address = m_address;
     }
+
+	@Override
+	public int getID() {
+		return m_id;
+	}
+
+	@Override
+	public void setID(int id) {
+		this.m_id = id;
+	}
 
 }
