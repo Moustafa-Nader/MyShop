@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class AllStoresHandler extends RequestHandlerBase {
 
     private IStoreService m_storeservice;
-    ArrayList<IStore> stores;
 
     public AllStoresHandler(IStoreService storeService){
         this.m_storeservice = storeService;
@@ -20,7 +19,6 @@ public class AllStoresHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
         System.out.println("Started Handling all Stores");
-        stores = m_storeservice.getAllStoresArrayList();
         String htmlPage = "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
@@ -68,9 +66,9 @@ public class AllStoresHandler extends RequestHandlerBase {
                 "\t<div class=\"form-box1\">\n" +
                 "\t\t<a href=\"/store/_STORE_NAME_\"><label>_STORE_NAME_</label></a>\n" +
                 "\t</div>\n";
-        for(int i = 0; i < stores.size(); i++) {
+        for(IStore store : m_storeservice.getAllStores()) {
             htmlPage += "\t<div class=\"form-box1\">\n" +
-            "\t\t<a href=\"/viewstore/" + stores.get(i).getName() +"\"><label>" + stores.get(i).getName() + "</label>" +
+            "\t\t<a href=\"/viewstore/" + store.getID() +"\"><label>" + store.getName() + "</label>" +
             "</a>\n\t</div>\n";
         }
 
