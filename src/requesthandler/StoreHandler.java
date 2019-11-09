@@ -19,7 +19,6 @@ public class StoreHandler extends RequestHandlerBase {
 
     @Override
     public void handle(IContext ctx) throws IOException {
-
         ctx.parse();
         if(ctx.getUser().getType().equals(AccountType.OWNER)) {
             System.out.println("Started Handling");
@@ -31,6 +30,7 @@ public class StoreHandler extends RequestHandlerBase {
             }
             this.m_storeservice.addStore(new Store(ctx.getUser().getID(), ctx.getParam("m_name"),
                     ctx.getParam("m_country"), input_type, input_address));
+            ctx.redirect("/home");
         } else {
             ctx.write("<html>Unauthorized</html>".getBytes());
         }
