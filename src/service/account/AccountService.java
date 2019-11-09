@@ -28,6 +28,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public void addAccount(IAccount acc) {
+		acc.setID(m_accounts.size());
 		m_accounts.add(acc);
 	}
 

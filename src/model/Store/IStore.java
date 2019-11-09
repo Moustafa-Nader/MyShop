@@ -3,7 +3,10 @@ package model.Store;
 import model.Address;
 
 public interface IStore {
-
+	public int getID();
+	
+	public void setID(int id);
+	
     public String getName();
 
     public void setName(String m_name);
@@ -23,4 +26,8 @@ public interface IStore {
     public Address getAddress();
 
     public void setAddress(Address m_address);
+    
+    public boolean isPending();
+    
+    public void setPending(boolean pending);
 }

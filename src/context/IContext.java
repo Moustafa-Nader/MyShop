@@ -3,6 +3,8 @@ package context;
 import java.io.IOException;
 import java.util.List;
 
+import com.sun.net.httpserver.HttpExchange;
+
 import cookie.ICookie;
 import model.account.IAccount;
 import session.ISession;
@@ -19,4 +21,5 @@ public interface IContext {
 	public ISession getSession();
 	public void setSession(ISession session);
 	public IAccount getUser();
+	public HttpExchange getHttpExchange();
 }

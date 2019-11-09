@@ -13,7 +13,7 @@ public class HtmlHandler {
         File homeFile = new File(path);
         Scanner scanner = new Scanner(homeFile);
         while (scanner.hasNextLine())
-            output += scanner.nextLine();
+            output += scanner.nextLine() + '\n';
         scanner.close();
         return output;
     }
