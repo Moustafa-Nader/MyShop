@@ -17,6 +17,7 @@ public class ProductService implements IProductService {
 	
 	@Override
 	public void addProduct(IProduct prod) {
+		prod.setID(m_products.size());
 		m_products.add(prod);
 	}
 
