@@ -15,9 +15,9 @@ public class StoreService implements IStoreService  {
                                     new Address("a","a",1,1)));
     }
 
-
     @Override
     public void addStore(IStore store) {
+    	store.setID(m_stores.size());
         m_stores.add(store);
     }
 
@@ -31,14 +31,7 @@ public class StoreService implements IStoreService  {
     }
 
     @Override
-    public IStore[] getAllStores(){
-        IStore[] dummy = null;
-        m_stores.toArray(dummy);
-        return dummy;
-    }
-
-    @Override
-    public ArrayList<IStore> getAllStoresArrayList() {
+    public ArrayList<IStore> getAllStores() {
         return m_stores;
     }
 }
