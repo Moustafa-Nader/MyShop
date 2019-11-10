@@ -32,6 +32,7 @@ public class RegisterHandler extends RequestHandlerBase {
                 ctx.getParam("m_email"),ctx.getParam("m_username"), ctx.getParam("m_password"));
         this.m_service.addAccount(acc);
 
-        ctx.write("<html>Thanks for registering </html>".getBytes());
+       // ctx.write("<html>Thanks for registering </html>".getBytes());
+        ctx.redirect("/home");
     }
 }
