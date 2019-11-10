@@ -6,6 +6,8 @@ import server.Server;
 import service.account.AccountService;
 import service.product.ProductService;
 import service.brand.BrandService;
+import service.store.StoreService;
+
 
 public class Main {
 	public static void main(String args[]) throws IOException
@@ -13,6 +15,8 @@ public class Main {
 		Server server = new Server(8080);
 		AccountService accountService = new AccountService();
 		BrandService brandService = new BrandService();
+		StoreService storeService = new StoreService();
+
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
@@ -23,6 +27,12 @@ public class Main {
 		server.addHandler("/products", new ProductHandler(new ProductService(),brandService));
 		server.addHandler("/addbrand", new AddBrandPageHandler());
 		server.addHandler("/brand", new BrandHandler(brandService));
+		server.addHandler("/addstore", new AddStorePageHandler());
+		server.addHandler("/addstoreq", new StoreHandler(storeService));
+		server.addHandler("/allstores", new AllStoresHandler(storeService));
+		server.addHandler("/viewstore", new ViewStoreHandler(storeService));
+		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
+		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.start();
 
 		
