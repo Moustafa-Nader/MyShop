@@ -1,6 +1,7 @@
 import java.awt.geom.RectangularShape;
 import java.io.IOException;
 
+import model.product.Product;
 import requesthandler.*;
 import server.Server;
 import service.account.AccountService;
@@ -13,6 +14,7 @@ public class Main {
 		Server server = new Server(8080);
 		AccountService accountService = new AccountService();
 		StoreService storeService = new StoreService();
+		ProductService productService = new ProductService();
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
@@ -20,11 +22,11 @@ public class Main {
 		server.addHandler("/logout", new LogoutHandler());
 		server.addHandler("/register", new RegisterHandler(accountService));
 		server.addHandler("/addproduct", new AddProductPageHandler());
-		server.addHandler("/products", new ProductHandler(new ProductService()));
+		server.addHandler("/products", new ProductHandler(productService));
 		server.addHandler("/addstore", new AddStorePageHandler());
 		server.addHandler("/addstoreq", new StoreHandler(storeService));
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
-		server.addHandler("/viewstore", new ViewStoreHandler(storeService));
+		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.start();
