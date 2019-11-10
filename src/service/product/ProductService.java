@@ -2,6 +2,8 @@ package service.product;
 
 import java.util.ArrayList;
 
+import model.brand.Brand;
+import model.brand.IBrand;
 import model.item.IItem;
 import model.product.IProduct;
 import model.product.Product;
@@ -13,7 +15,8 @@ public class ProductService implements IProductService {
 	public ProductService()
 	{
 		this.m_products = new ArrayList<IProduct>();
-		IProduct product = new Product("TestBrand","TestProduct",13d,"TestCategory");
+		IBrand brand = new Brand("TestBrandName","TestBrandCategory");
+		IProduct product = new Product(brand,"TestProduct",13d,"TestCategory");
 		product.setID(0);
 		m_products.add(product);
 	}
@@ -31,5 +34,10 @@ public class ProductService implements IProductService {
 				return product;
 		}
 		return null;
+	}
+
+	@Override
+	public ArrayList<IProduct> getAllProducts() {
+		return m_products;
 	}
 }

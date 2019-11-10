@@ -31,6 +31,10 @@ public class StoreService implements IStoreService  {
     }
 
     @Override
+    public void addItem(IItem item) {
+    }
+
+    @Override
     public IStore getStoreByName(String Name) {
         for(int i = 0; i < m_stores.size(); i++)
             if(m_stores.get(i).getName().equals(Name))
@@ -52,7 +56,8 @@ public class StoreService implements IStoreService  {
     }
 
     @Override
-    public void AddItemToStore(IItem item, IStore store) {
+    public void addItemToStore(IItem item, IStore store) {
+        item.setID(m_items.size());
         item.setStoreID(store.getID());
         m_items.add(item);
     }

@@ -34,6 +34,8 @@ public class Main {
 		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
+		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
+		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
 		server.start();
 
 		

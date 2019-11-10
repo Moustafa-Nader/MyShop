@@ -30,4 +30,5 @@ public interface IStore {
     public boolean isPending();
     
     public void setPending(boolean pending);
+
 }
