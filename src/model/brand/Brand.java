@@ -1,17 +1,17 @@
 package model.brand;
 
 public class Brand implements IBrand {
-String m_name;
+String m_bname;
 String m_category;
 int m_id;
     @Override
     public String getName() {
-        return m_name;
+        return m_bname;
     }
     @Override
 
     public void setName(String m_name) {
-        this.m_name = m_name;
+        this.m_bname = m_name;
     }
     @Override
 
@@ -34,7 +34,7 @@ int m_id;
         this.m_id = m_id;
     }
     public Brand(String m_name, String m_category) {
-        this.m_name = m_name;
+        this.m_bname = m_name;
         this.m_category = m_category;
     }
 

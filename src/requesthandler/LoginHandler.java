@@ -22,9 +22,11 @@ public class LoginHandler extends RequestHandlerBase {
         IAccount account = m_service.getByEmail(ctx.getParam("m_email"));
         if(m_service.checkPassword(account,ctx.getParam("m_password"))) {
             ctx.getSession().set("user", account);
-        	ctx.write("<html>Thanks :)</html>".getBytes());
+            //ctx.write("<html>Thanks :)</html>".getBytes());
+            ctx.redirect("/home");
         } else {
             ctx.write("<html>Sorry, Incorrect Username or Password :)</html>".getBytes());
+            ctx.redirect("/home");
         }
 
     }

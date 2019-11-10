@@ -20,7 +20,7 @@ public class Main {
 		server.addHandler("/logout", new LogoutHandler());
 		server.addHandler("/register", new RegisterHandler(accountService));
 		server.addHandler("/addproduct", new AddProductPageHandler());
-		server.addHandler("/products", new ProductHandler(new ProductService()));
+		server.addHandler("/products", new ProductHandler(new ProductService(),brandService));
 		server.addHandler("/addbrand", new AddBrandPageHandler());
 		server.addHandler("/brand", new BrandHandler(brandService));
 		server.start();

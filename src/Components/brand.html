@@ -47,9 +47,24 @@
             background-color: cornflowerblue;
             cursor: pointer;
         }
+        a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: blue;
+    background-color: initial;
+    }
 	</style>
 </head>
 <body>
+       <button> <a href="/signup" class="button">signup </a> </button>
+        <button><a href="/logout" class="button">logout </a> </button>
+        <button><a href="/addproduct" class="button">add product </a> </button>
+        <button><a href="/addbrand" class="button">add brand </a> <br></button>
+
+
 	<form id="brand-form" action="/brand" method="get">
 		<div class="form-box">
 			<label for="m_name">Brand Name </label>

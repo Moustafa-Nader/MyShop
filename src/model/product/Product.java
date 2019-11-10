@@ -1,14 +1,17 @@
 package model.product;
 
+import model.brand.Brand;
+import model.brand.IBrand;
+
 public class Product implements IProduct {
     int m_id;
-    String m_brand;
+    IBrand m_brand;
     String m_name;
     double m_price;
     String m_category;
-    public Product(String Brand, String Name, Double Price, String Cat) {
+    public Product(IBrand brand, String Name, Double Price, String Cat) {
         this.m_id = 0 ;
-        this.m_brand = Brand ;
+        this.m_brand = brand ;
         this.m_name = Name;
         this.m_price = Price;
         this.m_category = Cat;
@@ -34,7 +37,7 @@ public class Product implements IProduct {
     }
 
     @Override
-    public String getBrand() {
+    public IBrand getBrand() {
         return this.m_brand ;
     }
 
@@ -63,7 +66,7 @@ public class Product implements IProduct {
     }
 
     @Override
-    public void setBrand(String brand) {
+    public void setBrand(IBrand brand) {
         this.m_brand = brand;
 
     }
