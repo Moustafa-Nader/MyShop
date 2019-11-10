@@ -4,21 +4,34 @@ import model.Address;
 import model.Store.IStore;
 import model.Store.Store;
 import model.Store.StoreType;
+import model.item.IItem;
+import model.item.Item;
 
 import java.util.ArrayList;
 
 public class StoreService implements IStoreService  {
     ArrayList<IStore> m_stores;
+    ArrayList<IItem> m_items;
 
     public StoreService() { this.m_stores = new ArrayList<>();
-                            m_stores.add(new Store(0,"TESTSTORE","TESTCOUNTRY", StoreType.ONSITE,
-                                    new Address("a","a",1,1)));
+                            this.m_items = new ArrayList<>();
+                            IStore store = new Store(0,"TESTSTORE","TESTCOUNTRY", StoreType.ONSITE,
+                                    new Address("a","a",1,1));
+                            store.setPending(false);
+                            m_stores.add(store);
+                            m_items.add(new Item(0,0,69d));
+
+
     }
 
     @Override
     public void addStore(IStore store) {
     	store.setID(m_stores.size());
         m_stores.add(store);
+    }
+
+    @Override
+    public void addItem(IItem item) {
     }
 
     @Override
@@ -40,5 +53,22 @@ public class StoreService implements IStoreService  {
     @Override
     public ArrayList<IStore> getAllStores() {
         return m_stores;
+    }
+
+    @Override
+    public void addItemToStore(IItem item, IStore store) {
+        item.setID(m_items.size());
+        item.setStoreID(store.getID());
+        m_items.add(item);
+    }
+
+    @Override
+    public ArrayList<IItem> getItemsByStoreID(int storeID) {
+        ArrayList<IItem> ret_items = new ArrayList<>();
+        for(IItem item : m_items){
+            if(item.getStoreID() == storeID)
+                ret_items.add(item);
+        }
+        return ret_items;
     }
 }

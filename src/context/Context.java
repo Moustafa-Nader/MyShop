@@ -51,7 +51,6 @@ public class Context implements IContext {
 				m_parameters.put(key,value);
 			}
 		}
-
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 import java.awt.geom.RectangularShape;
 import java.io.IOException;
 
+import model.product.Product;
 import requesthandler.*;
 import server.Server;
 import service.account.AccountService;
@@ -16,7 +17,7 @@ public class Main {
 		AccountService accountService = new AccountService();
 		BrandService brandService = new BrandService();
 		StoreService storeService = new StoreService();
-
+		ProductService productService = new ProductService();
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
@@ -24,15 +25,17 @@ public class Main {
 		server.addHandler("/logout", new LogoutHandler());
 		server.addHandler("/register", new RegisterHandler(accountService));
 		server.addHandler("/addproduct", new AddProductPageHandler());
-		server.addHandler("/products", new ProductHandler(new ProductService(),brandService));
+		server.addHandler("/products", new ProductHandler(productService,brandService));
 		server.addHandler("/addbrand", new AddBrandPageHandler());
 		server.addHandler("/brand", new BrandHandler(brandService));
 		server.addHandler("/addstore", new AddStorePageHandler());
 		server.addHandler("/addstoreq", new StoreHandler(storeService));
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
-		server.addHandler("/viewstore", new ViewStoreHandler(storeService));
+		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
+		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
+		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
 		server.start();
 
 		
