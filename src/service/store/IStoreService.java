@@ -7,11 +7,11 @@ import java.util.ArrayList;
 
 public interface IStoreService {
     public void addStore(IStore store);
-    public void addItem(IItem item);
     public IStore getStoreByName(String Name);
     public IStore getStoreByID(int id);
     public ArrayList<IStore> getAllStores();
     public void addItemToStore(IItem item,IStore store);
     public ArrayList<IItem> getItemsByStoreID(int storeID);
+    public IItem getItemByID(int itemID);
 
 }

@@ -1,11 +1,13 @@
 import java.awt.geom.RectangularShape;
 import java.io.IOException;
+import java.util.HashMap;
 
 import model.product.Product;
 import requesthandler.*;
 import server.Server;
 import service.account.AccountService;
 import service.product.ProductService;
+import service.statistics.StatisticsService;
 import service.brand.BrandService;
 import service.store.StoreService;
 
@@ -18,6 +20,7 @@ public class Main {
 		BrandService brandService = new BrandService();
 		StoreService storeService = new StoreService();
 		ProductService productService = new ProductService();
+		StatisticsService statisticsService = new StatisticsService();
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
@@ -31,7 +34,8 @@ public class Main {
 		server.addHandler("/addstore", new AddStorePageHandler());
 		server.addHandler("/addstoreq", new StoreHandler(storeService));
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
-		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService));
+		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService, statisticsService));
+		server.addHandler("/viewitem", new ViewItemHandler(storeService,productService, statisticsService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
