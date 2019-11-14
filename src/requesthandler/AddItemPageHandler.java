@@ -25,6 +25,7 @@ public class AddItemPageHandler extends RequestHandlerBase {
 
     @Override
     public void handle(IContext ctx) throws IOException {
+        System.out.println(ctx.getHttpExchange().getRequestMethod());
         System.out.println(ctx.getHttpExchange().getRequestURI());
         String[] uri = ctx.getHttpExchange().getRequestURI().toString().split("/");
         int storeID = -1;

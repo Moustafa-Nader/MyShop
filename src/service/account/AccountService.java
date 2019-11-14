@@ -16,6 +16,7 @@ public class AccountService implements IAccountService {
 		acc.setPassword("shafrafa");
 		acc.setID(0);
 		acc.setType(AccountType.OWNER);
+		acc.setUsername("Amr Hassan");
 		addAccount(acc);
 	}
 
