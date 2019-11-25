@@ -21,6 +21,7 @@ public class Main {
 		StoreService storeService = new StoreService();
 		ProductService productService = new ProductService();
 		StatisticsService statisticsService = new StatisticsService();
+		server.addHandler("/static", new StaticFilesHandler());
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
 		server.addHandler("/login", new LoginHandler(accountService));
@@ -41,7 +42,5 @@ public class Main {
 		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
 		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
 		server.start();
-
-		
 	}
 }
