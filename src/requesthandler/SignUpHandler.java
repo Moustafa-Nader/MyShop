@@ -9,12 +9,11 @@ import java.util.Scanner;
 public class SignUpHandler extends RequestHandlerBase {
     @Override
     public void handle(IContext ctx) throws IOException {
-        String output = "";
-        File homeFile = new File("src/signup.html");
-        Scanner scanner = new Scanner(homeFile);
-        while(scanner.hasNextLine())
-            output += scanner.nextLine();
-
-        ctx.write(output.getBytes());
+    	if(ctx.getUser() != null) {
+    		ctx.redirect("/home");
+    		return;
+    	}
+        String path = "/src/Components/signup.html";
+        ctx.write(m_resources.htmlRead(path).getBytes());
     }
 }

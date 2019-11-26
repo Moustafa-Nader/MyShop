@@ -46,12 +46,13 @@ public class Context implements IContext {
 			String[] parameters = query.split("[&]");
 			for (String pair : parameters) {
 				String pairs[] = pair.split("[=]");
+				if(pairs.length > 1) {
 				String key = pairs[0];
 				String value = pairs[1];
 				m_parameters.put(key,value);
+				}
 			}
 		}
-
 	}
 	
 	@Override
@@ -113,6 +114,11 @@ public class Context implements IContext {
     	if(getSession().get("user") instanceof IAccount)
     		account = (IAccount) getSession().get("user");
     	return account;
+	}
+
+	@Override
+	public HttpExchange getHttpExchange() {
+		return m_httpExchange;
 	}
 
 }

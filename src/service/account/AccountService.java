@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 import model.account.Account;
+import model.account.AccountType;
 import model.account.IAccount;
 
 public class AccountService implements IAccountService {
@@ -13,6 +14,8 @@ public class AccountService implements IAccountService {
 		Account acc = new Account();
 		acc.setEmail("Amr+Hassan");
 		acc.setPassword("shafrafa");
+		acc.setID(0);
+		acc.setType(AccountType.OWNER);
 		addAccount(acc);
 	}
 
@@ -28,6 +31,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public void addAccount(IAccount acc) {
+		acc.setID(m_accounts.size());
 		m_accounts.add(acc);
 	}
 

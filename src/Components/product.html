@@ -1,0 +1,28 @@
+<head>
+  <style type="text/css">
+          a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: blue;
+    background-color: initial;
+    }
+  
+  </style>
+</head>
+<body>
+  <button> <a href="/signup" class="button">signup </a> </button>
+  <button><a href="/logout" class="button">logout </a> </button>
+  <button><a href="/addproduct" class="button">add product </a> </button>
+  <button><a href="/addbrand" class="button">add brand </a> <br></button>
+
+<form action="/products" method="get">
+  <p> Brand: </p> <input type="text" name="m_bname"><br>
+  <p> Name: </p> <input type="text" name="m_name"><br>
+  <p> Price: </p> <input type="text" name="m_price"><br>
+  <p> Category: </p> <input type="text" name="m_category"><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
