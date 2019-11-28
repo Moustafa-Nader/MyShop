@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import model.account.Account;
 import model.account.AccountType;
 import model.account.IAccount;
+import service.IAggregate;
 
-public class AccountService implements IAccountService {
+public class AccountService implements IAccountService, IAggregate {
 	ArrayList<IAccount> m_accounts;
 	public AccountService() {
 		m_accounts = new ArrayList<>();
@@ -57,5 +58,10 @@ public class AccountService implements IAccountService {
 			System.out.println(acc.getEmail());
 			System.out.println(acc.getHash());
 		}
+	}
+
+	@Override
+	public int count() {
+		return m_accounts.size();
 	}
 }

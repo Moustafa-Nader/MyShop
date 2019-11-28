@@ -3,8 +3,9 @@ package service.brand;
 import java.util.ArrayList;
 
 import model.brand.IBrand;
+import service.IAggregate;
 
-public class BrandService implements IBrandService {
+public class BrandService implements IBrandService, IAggregate {
     ArrayList<IBrand> m_brands;
 
     public BrandService() {
@@ -29,5 +30,10 @@ public class BrandService implements IBrandService {
         if(brand != null) return true;
         return false;
         
-    } 
+    }
+
+	@Override
+	public int count() {
+		return m_brands.size();
+	} 
 }

@@ -46,6 +46,9 @@ public class Main {
 		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
 		server.addHandler("/additemtocart",new AddItemToCartHandler(storeService));
 		server.addHandler("/makepurchase", new MakePurchaseHandler(storeService,orderService));
+		server.addHandler("/addstatistic", new AddStatisticPageHandler());
+		server.addHandler("/addstatisticq", new AddStatisticHandler(
+					accountService, storeService, productService, orderService, brandService));
 		server.start();
 	}
 }

@@ -7,8 +7,9 @@ import model.brand.IBrand;
 import model.item.IItem;
 import model.product.IProduct;
 import model.product.Product;
+import service.IAggregate;
 
-public class ProductService implements IProductService {
+public class ProductService implements IProductService, IAggregate {
 	ArrayList<IProduct> m_products;
 	//ArrayList<IItem> m_items;
 	
@@ -39,5 +40,10 @@ public class ProductService implements IProductService {
 	@Override
 	public ArrayList<IProduct> getAllProducts() {
 		return m_products;
+	}
+
+	@Override
+	public int count() {
+		return m_products.size();
 	}
 }
