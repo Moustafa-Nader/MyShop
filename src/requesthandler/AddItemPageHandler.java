@@ -106,9 +106,13 @@ public class AddItemPageHandler extends RequestHandlerBase {
                     "\t\t\t<label for=\"m_price\">Item Price: </label>\n" +
                     "\t\t\t<input type=\"number\" step=\"0.01\" name=\"m_price\" id=\"m_price\">\n" +
                     "\t\t</div>\n" +
+                    "\t\t<div>\n" +
+                    "\t\t\t<label for=\"m_quantity\"> Stock Quantity: </label>" +
+                    "\t\t\t<input type=\"number\" name=\"m_quantity\" id=\"m_quantity\">\n" +
+                    "\t\t</div>\n" +
                     "\t\t<div class=\"form-box\">\n" +
                     "\t\t\t<button id=\"submititem\" type=\"submit\">Add Item</button>\n" +
-                    "\t\t</div>" +
+                    "\t\t</div>\n" +
                     "\t</form>\n" +
                     "\n" +
                     "</body>\n" +

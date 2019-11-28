@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ItemView</title>
+	<link rel="stylesheet" type="text/css" href="forms.css">
+</head>
+<body>
+	<h1>You are viewing " + product.getName() + "</h1>
+	<br>
+	<form id="itemtocartform" action="/additemtocart" method="get">
+		<div>
+			<label for="m_quantity">Quantity</label>
+			<input type="number" name="m_quantity" id="m_quantity">
+		</div>
+		<div>
+			<input type="submit" name="submit-item-quantity">
+		</div>
+	</form>
+
+</body>
+</html>

@@ -12,8 +12,9 @@ public class StaticFilesHandler extends RequestHandlerBase implements IRequestHa
 	@Override
     public void handle(IContext ctx) throws IOException {
 		String path = System.getProperty("user.dir") + ctx.getHttpExchange().getRequestURI().getPath();
+		if(!System.getProperty("os.name").equals("Linux"))
 		path = path.replace('/', '\\');
-		System.out.println(path);
+		
 		Path fileLocation = Paths.get(path);
 		if(!fileLocation.toFile().exists() || fileLocation.toFile().isDirectory()) {
 			ctx.write("file does not exist".getBytes());

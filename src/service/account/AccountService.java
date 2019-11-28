@@ -17,6 +17,15 @@ public class AccountService implements IAccountService {
 		acc.setID(0);
 		acc.setType(AccountType.OWNER);
 		addAccount(acc);
+		Account acc1 = new Account();
+		acc1.setEmail("u");acc1.setPassword("u");acc1.setID(1);acc1.setType(AccountType.USER);
+		addAccount(acc1);
+		Account acc2 = new Account();
+		acc2.setEmail("a");acc2.setPassword("a");acc2.setID(2);acc2.setType(AccountType.ADMIN);
+		addAccount(acc2);
+		Account acc3 = new Account();
+		acc3.setEmail("s");acc3.setPassword("s");acc3.setID(3);acc3.setType(AccountType.OWNER);
+		addAccount(acc3);
 	}
 
 	@Override
