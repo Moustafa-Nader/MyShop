@@ -6,10 +6,11 @@ import model.Store.Store;
 import model.Store.StoreType;
 import model.item.IItem;
 import model.item.Item;
+import service.IAggregate;
 
 import java.util.ArrayList;
 
-public class StoreService implements IStoreService  {
+public class StoreService implements IStoreService, IAggregate  {
     ArrayList<IStore> m_stores;
     ArrayList<IItem> m_items;
 
@@ -82,5 +83,9 @@ public class StoreService implements IStoreService  {
 				return item;
 		}
 		return null;
+	}
+	@Override
+	public int count() {
+		return m_stores.size();
 	}
 }

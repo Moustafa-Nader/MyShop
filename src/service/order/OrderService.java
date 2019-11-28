@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 import model.item.IItem;
 import model.order.IOrder;
+import service.IAggregate;
 import service.store.IStoreService;
 
-public class OrderService implements IOrderService {
+public class OrderService implements IOrderService, IAggregate {
 	ArrayList<IOrder> m_orders;
 	IStoreService m_storeService;
 	
@@ -64,6 +65,11 @@ public class OrderService implements IOrderService {
 				result.add(order);
 		}
 		return result;
+	}
+
+	@Override
+	public int count() {
+		return m_orders.size();
 	}
 
 }
