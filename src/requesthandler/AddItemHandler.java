@@ -37,8 +37,10 @@ public class AddItemHandler extends RequestHandlerBase {
             ctx.write("Still pending".getBytes());
         else {
             System.out.println(ctx.getParam("m_price"));
+            Integer.parseInt(ctx.getParam("m_quantity"));
             System.out.println(Float.parseFloat(ctx.getParam("m_price")));
-            IItem item = new Item(Integer.parseInt(ctx.getParam("m_product")),storeID,Float.parseFloat(ctx.getParam("m_price")));
+            IItem item = new Item(Integer.parseInt(ctx.getParam("m_product")),storeID,Float.parseFloat(ctx.getParam("m_price"))
+                    ,Integer.parseInt(ctx.getParam("m_quantity")));
             m_storeservice.addItemToStore(item,store);
             ctx.write("<html>ITEM ADDED</html>".getBytes());
         }

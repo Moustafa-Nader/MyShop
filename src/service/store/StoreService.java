@@ -19,7 +19,7 @@ public class StoreService implements IStoreService  {
                                     new Address("a","a",1,1));
                             store.setPending(false);
                             m_stores.add(store);
-                            m_items.add(new Item(0,0,69d));
+                            m_items.add(new Item(0,0,69d, 4));
 
 
     }

@@ -42,6 +42,8 @@ public class ViewItemHandler extends RequestHandlerBase {
 					"<body>\n" +
 					"\t<h1>You are viewing " + product.getName() + "</h1>\n" +
 					"\t<br>\n" +
+					"\tInStock: " + item.getQuantity() + "\n" +
+					"\t<br>\n" +
 					"\t<form id=\"itemtocartform\" action=\"/additemtocart/" + item.getID() + "\"method=\"get\">\n" +
 					"\t\t<div class=\"form-box\">\n" +
 					"\t\t\t<label for=\"m_quantity\">Quantity</label>\n" +

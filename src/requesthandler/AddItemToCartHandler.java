@@ -25,6 +25,7 @@ public class AddItemToCartHandler extends RequestHandlerBase {
         System.out.println("Started Handling item addition to cart");
         if(uri.length == 3){
             int item_id = Integer.parseInt(uri[2]);
+            IItem item = m_storeservice.getItemByID(item_id);
             ICart usercart = null;
             int quantity = Integer.parseInt(ctx.getParam("m_quantity"));
 
@@ -33,13 +34,14 @@ public class AddItemToCartHandler extends RequestHandlerBase {
             if(ctx.getSession().get("cart") instanceof ICart)
                 usercart = (ICart)ctx.getSession().get("cart"); //Getting already set cart
 
+
             if(m_storeservice.getItemByID(item_id) == null) {
                 ctx.write("<h1>item addition failed, invalid item id</h1>".getBytes());
                 return;
             }
 
-            if(quantity < 0) {
-                ctx.write("<h1><item addition failed, invalid amount/h1>".getBytes());
+            if(quantity < 0 || quantity > item.getQuantity()) {
+                ctx.write("<h1>item addition failed, invalid amount</h1>".getBytes());
                 return;
             }
             else {
