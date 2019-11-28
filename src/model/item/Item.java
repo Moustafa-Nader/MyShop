@@ -3,11 +3,19 @@ package model.item;
 public class Item implements IItem {
 	private int m_id, m_productId, m_storeId;
 	private double m_price;
-	
-	public Item(int productId, int storeId, double price) {
-		m_productId = productId;
-		m_storeId = storeId;
-		m_price = price;
+	private int m_quantity;
+
+	@Override
+	public void setQuantity(int quantity) { this.m_quantity = quantity; }
+
+	@Override
+	public int getQuantity() { return m_quantity; }
+
+	public Item(int productId, int storeId, double price, int quantity) {
+		this.m_productId = productId;
+		this.m_storeId = storeId;
+		this.m_price = price;
+		this.m_quantity = quantity;
 	}
 	
 	@Override
