@@ -41,6 +41,7 @@ public class Main {
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
 		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
+		server.addHandler("/additemtocart",new AddItemToCartHandler(storeService));
 		server.start();
 	}
 }

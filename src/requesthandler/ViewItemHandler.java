@@ -22,6 +22,7 @@ public class ViewItemHandler extends RequestHandlerBase {
 
 	public void handle(IContext ctx) throws IOException {
 		String[] uri = ctx.getHttpExchange().getRequestURI().getPath().split("/");
+		String output = "";
 	
 		int itemID = -1;
 		if(uri.length == 3)
@@ -32,7 +33,28 @@ public class ViewItemHandler extends RequestHandlerBase {
 		else {
 			IProduct product = m_productService.getProductByID(item.getProductID());
 			this.m_statisticsService.recordItemVisit(itemID);
-			ctx.write(("<h1> View " + product.getName() + "</h1>").getBytes());
+			output += "<!DOCTYPE html>\n" +
+					"<html>\n" +
+					"<head>\n" +
+					"<link rel=\"stylesheet\" type=\"text/css\" href=\"/static/forms.css\">\n" +
+					"\t<title>ItemView</title>\n" +
+					"</head>\n" +
+					"<body>\n" +
+					"\t<h1>You are viewing " + product.getName() + "</h1>\n" +
+					"\t<br>\n" +
+					"\t<form id=\"itemtocartform\" action=\"/additemtocart/" + item.getID() + "\"method=\"get\">\n" +
+					"\t\t<div class=\"form-box\">\n" +
+					"\t\t\t<label for=\"m_quantity\">Quantity</label>\n" +
+					"\t\t\t<input type=\"number\" name=\"m_quantity\" id=\"m_quantity\">\n" +
+					"\t\t</div>\n" +
+					"\t\t<div class=\"form-box\">\n" +
+					"\t\t\t<button id=\"additemtocart\" type=\"submit\">Add to Cart</button>\n" +
+					"\t\t</div>\n" +
+					"\t</form>\n" +
+					"\n" +
+					"</body>\n" +
+					"</html>";
+			ctx.write(output.getBytes());
 		}
 	}
 }
