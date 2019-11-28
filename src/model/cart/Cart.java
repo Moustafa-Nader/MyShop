@@ -24,6 +24,13 @@ public class Cart implements ICart{
     @Override
     public void addItemByID(int item_id, int quantity) {
         CartItem temp_cartitem = new CartItem(item_id,quantity);
+        for(CartItem cartItem : m_cartitemslist)
+        {
+            if(cartItem.getItem_id()==temp_cartitem.getItem_id()) {
+                cartItem.setQuantity(cartItem.getQuantity()+quantity);
+                return;
+            }
+        }
         m_cartitemslist.add(temp_cartitem);
     }
 
@@ -39,5 +46,9 @@ public class Cart implements ICart{
     @Override
     public ArrayList<CartItem> getCartItems() {
         return m_cartitemslist;
+    }
+    @Override 
+    public void deleteCartItems(){
+    this.m_cartitemslist = new ArrayList<>();
     }
 }

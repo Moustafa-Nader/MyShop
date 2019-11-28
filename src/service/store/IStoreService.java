@@ -13,5 +13,5 @@ public interface IStoreService {
     public void addItemToStore(IItem item,IStore store);
     public ArrayList<IItem> getItemsByStoreID(int storeID);
     public IItem getItemByID(int itemID);
-
+    public void setQuantity(int itemID , int Quantity);
 }

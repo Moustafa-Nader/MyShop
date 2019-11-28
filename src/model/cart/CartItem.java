@@ -25,4 +25,5 @@ public class CartItem {
     public void setQuantity(int quantity) {
         this.m_quantity = quantity;
     }
+
 }

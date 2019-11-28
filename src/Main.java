@@ -9,6 +9,7 @@ import service.account.AccountService;
 import service.product.ProductService;
 import service.statistics.StatisticsService;
 import service.brand.BrandService;
+import service.order.OrderService;
 import service.store.StoreService;
 
 
@@ -21,6 +22,7 @@ public class Main {
 		StoreService storeService = new StoreService();
 		ProductService productService = new ProductService();
 		StatisticsService statisticsService = new StatisticsService();
+		OrderService orderService = new OrderService(storeService);
 		server.addHandler("/static", new StaticFilesHandler());
 		server.addHandler("/hello", new HelloHandler());
 		server.addHandler("/home", new HomeHandler());
@@ -37,11 +39,13 @@ public class Main {
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
 		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService, statisticsService));
 		server.addHandler("/viewitem", new ViewItemHandler(storeService,productService, statisticsService));
+		server.addHandler("/viewcart", new ViewCartHandler(productService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));
 		server.addHandler("/additemq",new AddItemHandler(productService,storeService));
 		server.addHandler("/additemtocart",new AddItemToCartHandler(storeService));
+		server.addHandler("/makepurchase", new MakePurchaseHandler(storeService,orderService));
 		server.start();
 	}
 }

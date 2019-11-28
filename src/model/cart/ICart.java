@@ -11,5 +11,5 @@ public interface ICart {
     public void addItemByID(int item_id, int quantity);
     public int getItemID(int item_id);
     public ArrayList<CartItem> getCartItems();
-
+    public void deleteCartItems();
 }

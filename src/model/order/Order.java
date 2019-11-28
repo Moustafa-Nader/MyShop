@@ -6,11 +6,11 @@ public class Order implements IOrder {
 	int m_orderId, m_itemId, m_userId;
 	Date m_date;
 	
-	public Order(int orderId, int itemId, int userId) {
+	public Order(int itemId, int userId) {
 		m_date = new Date();
-		m_orderId = orderId;
 		m_itemId = itemId;
 		m_userId = userId;
+
 	}
 	
 	@Override

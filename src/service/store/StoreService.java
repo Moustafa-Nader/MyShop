@@ -23,7 +23,14 @@ public class StoreService implements IStoreService  {
 
 
     }
+    @Override
+    public void setQuantity(int itemID , int Quantity){
+        for(IItem item : m_items){
+            if(item.getStoreID() == itemID)
+                item.setQuantity(Quantity);
+        }
 
+    }
     @Override
     public void addStore(IStore store) {
     	store.setID(m_stores.size());
