@@ -10,6 +10,9 @@ public interface IStoreService {
     public IStore getStoreByName(String Name);
     public IStore getStoreByID(int id);
     public ArrayList<IStore> getAllStores();
+    public void addCollaborator(int userID, int storeID);
+    public boolean isCollaborator(int userID, int storeID);
+    public ArrayList<Integer> getCollaborators(int storeID);
     public void addItemToStore(IItem item,IStore store);
     public ArrayList<IItem> getItemsByStoreID(int storeID);
     public IItem getItemByID(int itemID);
