@@ -138,7 +138,15 @@ public class StoreService implements IStoreService, IAggregate  {
 				return true;
 		}
 		return false;
-	}
+    }
+    @Override
+    public IAction isAction(int storeID,String aname){
+        ArrayList<IAction> storeAction = this.m_storeHistoryMap.get(storeID);
+        if(storeAction == null) return null;
+        for(int i = 0 ; i < storeAction.size();++i)
+            if(storeAction.get(i).getActionName().equals(aname))return storeAction.get(i);
+        return null;
+        }
 	@Override
 	public ArrayList<Integer> getCollaborators(int storeID) {
 		return this.m_collaboratorMap.get(storeID);

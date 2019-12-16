@@ -36,9 +36,13 @@ public class ViewStoreHistoryHandler extends RequestHandlerBase {
             if (historyList.size() == 0) {
                 ctx.write("There are no Actions yet!".getBytes());
             } else {
-                String output = "<html><body>";
+                String output = "<html><body>\n" ;
                 for (IAction action : historyList) {
-                    output += "<h3>" +action.getActionName()  +"</h3>";
+                    output+="\t<form  action=\"/action/" +store.getID() +"/\"method=\"get\">\n" +
+                    "<input type=\"hidden\" name=\"action\" value=\"" +action.getActionName() +"\">"+
+                    "<h3>" +action.getActionName()  +"</h3>"+
+                    "\t\t\t<button  type=\"submit\">Undo</button>\n"+
+                    "\t</form>\n" ;
                 }
                 output += "</body></html>";
                 ctx.write(output.getBytes());

@@ -14,6 +14,7 @@ public interface IStoreService {
     public void addCollaborator(int userID, int storeID);
     public void addAction(int storeID,IAction action);
     public boolean isCollaborator(int userID, int storeID);
+    public IAction isAction(int storeID,String aname);
     public ArrayList<Integer> getCollaborators(int storeID);
     public ArrayList<IAction> getHistory(int storeID);
     public void addItemToStore(IItem item,IStore store);
@@ -23,4 +24,5 @@ public interface IStoreService {
     public ArrayList<IItem> getItemsByStoreID(int storeID);
     public IItem getItemByID(int itemID);
     public void setQuantity(int itemID , int Quantity);
+    
 }

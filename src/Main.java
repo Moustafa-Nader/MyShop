@@ -53,6 +53,8 @@ public class Main {
 		server.addHandler("/addcollaboratorq", new AddCollaboratorHandler(storeService));
 		server.addHandler("/viewcollaborators", new ViewCollaboratorsHandler(storeService, accountService));
 		server.addHandler("/viewstorehistory", new ViewStoreHistoryHandler(storeService));
+		server.addHandler("/action", new ActionHandler(storeService));
+
 		server.start();
 	}
 }
