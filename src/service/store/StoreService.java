@@ -76,8 +76,8 @@ public class StoreService implements IStoreService, IAggregate  {
         IAction action = new AddItemAction(this, store, item);
         action.execute();
         System.out.println(store.getID());
+        addAction(store.getID(),action);
         
-        this.m_storeHistoryMap.get(store.getID()).add(action);
     }
     @Override
     public void addItemToStoreDB(IItem item, IStore store) {
@@ -90,7 +90,7 @@ public class StoreService implements IStoreService, IAggregate  {
     {
         IAction action = new AddItemAction(this, store, item);
         action.undo();
-        this.m_storeHistoryMap.get(store.getID()).add(action);
+        addAction(store.getID(),action);
     }
     @Override
     public void removeItemFromStoreDB(IItem item,IStore store){
@@ -117,7 +117,11 @@ public class StoreService implements IStoreService, IAggregate  {
 	@Override
 	public int count() {
 		return m_stores.size();
-	}
+    }
+    @Override
+    public void addAction(int storeID,IAction action){
+        this.m_storeHistoryMap.get(storeID).add(action);
+    }
 	@Override
 	public void addCollaborator(int userID, int storeID) {
 		if(this.m_collaboratorMap.get(storeID) == null)
@@ -141,5 +145,6 @@ public class StoreService implements IStoreService, IAggregate  {
     @Override
 	public ArrayList<IAction> getHistory(int storeID) {
 		return this.m_storeHistoryMap.get(storeID);
-	}
+    }
+    
 }

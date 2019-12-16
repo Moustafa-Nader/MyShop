@@ -12,6 +12,7 @@ public interface IStoreService {
     public IStore getStoreByID(int id);
     public ArrayList<IStore> getAllStores();
     public void addCollaborator(int userID, int storeID);
+    public void addAction(int storeID,IAction action);
     public boolean isCollaborator(int userID, int storeID);
     public ArrayList<Integer> getCollaborators(int storeID);
     public ArrayList<IAction> getHistory(int storeID);
