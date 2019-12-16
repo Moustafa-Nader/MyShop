@@ -18,7 +18,7 @@ public class ViewItemHandler extends RequestHandlerBase {
         this.m_storeService = storeService;
         this.m_productService = productService;
         this.m_statisticsService = statisticsService;
-    }
+	}
 
 	public void handle(IContext ctx) throws IOException {
 		String[] uri = ctx.getHttpExchange().getRequestURI().getPath().split("/");

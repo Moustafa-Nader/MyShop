@@ -52,6 +52,7 @@ public class ViewStoreHandler extends RequestHandlerBase {
 				htmlPage += "<b><label><a href=\"/additem/"+ store.getID() +"\">Add item </label></a><br>";
 				htmlPage += "<b><label><a href=\"/addcollaborator/"+ store.getID() +"\">Add collaborator</label></a><br>";
 				htmlPage += "<b><label><a href=\"/viewcollaborators/"+ store.getID() +"\">View collaborators</label></a><br>";
+				htmlPage += "<b><label><a href=\"/viewstorehistory/"+ store.getID() +"\">View Store History</label></a><br>";
 				htmlPage += "<h3>Your items have been visited " + itemsViewCnt + "</h3>";
 			}
 			ctx.write(htmlPage.getBytes());
