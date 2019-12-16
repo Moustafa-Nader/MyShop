@@ -3,6 +3,7 @@ package service.store;
 import model.Address;
 import model.Action.IAction;
 import model.Action.storeaction.AddItemAction;
+import model.Action.storeaction.RemoveItemAction;
 import model.Store.IStore;
 import model.Store.Store;
 import model.Store.StoreType;
@@ -88,8 +89,8 @@ public class StoreService implements IStoreService, IAggregate  {
     @Override
     public void removeItemFromStore(IItem item,IStore store)
     {
-        IAction action = new AddItemAction(this, store, item);
-        action.undo();
+        IAction action = new RemoveItemAction(this, store, item);
+        action.execute();
         addAction(store.getID(),action);
     }
     @Override

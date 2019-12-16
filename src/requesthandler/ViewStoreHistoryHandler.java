@@ -38,7 +38,7 @@ public class ViewStoreHistoryHandler extends RequestHandlerBase {
             } else {
                 String output = "<html><body>";
                 for (IAction action : historyList) {
-                    output += "<h3>" + "Added "+action.getActionName()  +"</h3>";
+                    output += "<h3>" +action.getActionName()  +"</h3>";
                 }
                 output += "</body></html>";
                 ctx.write(output.getBytes());
