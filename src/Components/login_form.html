@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>MyShop</title>
-</head>
-<body>
-  
-<form action="/login" method="get">
-  <p> Username: </p> <input type="text" name="m_email"><br>
-  <p> Password: </p> <input type="text" name="m_password"><br>
-  <input type="submit" value="Log in">
-</form>
-<br>
-<a href="/signup"> Sign up </a>
-</body>
-</html>
 
+<head>
+  <title>MyShop</title>
+  <link rel="stylesheet" type="text/css" href="/static/login.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <form action="/login" method="get">
+        <div class="group">
+          <label for="m_email">
+            <p> Username: </p>
+          </label>
+          <input type="text" name="m_email"><br>
+        </div>
+        <div class="group">
+          <label for="m_password">
+            <p> Password: </p>
+          </label>
+          <input type="text" name="m_password"><br>
+          <br>
+        </div>
+        <input type="submit" value="Log in">
+        <a href="/signup"> Sign up </a>      
+      </form>
+    </div>
+  </div>
+  <br>
+  
+</body>
+
+</html>

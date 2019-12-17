@@ -31,7 +31,8 @@ public class AddItemHandler extends RequestHandlerBase {
         IStore store = m_storeservice.getStoreByID(storeID);
         if (store == null)
             ctx.write("invalid Id".getBytes());
-        else if(store.getOwnerid() != ctx.getUser().getID())
+        else if(store.getOwnerid() != ctx.getUser().getID()
+        		&& !m_storeservice.isCollaborator(ctx.getUser().getID(), store.getID()))
             ctx.write("Unauthorized".getBytes());
         else if(store.isPending())
             ctx.write("Still pending".getBytes());

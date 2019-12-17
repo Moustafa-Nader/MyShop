@@ -50,6 +50,12 @@ public class Main {
 		server.addHandler("/addstatistic", new AddStatisticPageHandler());
 		server.addHandler("/addstatisticq", new AddStatisticHandler(
 					accountService, storeService, productService, orderService, brandService));
+		server.addHandler("/addcollaborator", new AddCollaboratorPageHandler(storeService));
+		server.addHandler("/addcollaboratorq", new AddCollaboratorHandler(storeService));
+		server.addHandler("/viewcollaborators", new ViewCollaboratorsHandler(storeService, accountService));
+		server.addHandler("/viewstorehistory", new ViewStoreHistoryHandler(storeService));
+		server.addHandler("/action", new ActionHandler(storeService));
+
 		server.start();
 	}
 }
