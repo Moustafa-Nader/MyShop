@@ -10,6 +10,7 @@ import service.product.ProductService;
 import service.statistics.StatisticsService;
 import service.brand.BrandService;
 import service.order.OrderService;
+import service.store.IStoreService;
 import service.store.StoreService;
 
 
@@ -39,7 +40,7 @@ public class Main {
 		server.addHandler("/allstores", new AllStoresHandler(storeService));
 		server.addHandler("/viewstore", new ViewStoreHandler(storeService,productService, statisticsService));
 		server.addHandler("/viewitem", new ViewItemHandler(storeService,productService, statisticsService));
-		server.addHandler("/viewcart", new ViewCartHandler(productService));
+		server.addHandler("/viewcart", new ViewCartHandler(productService,orderService, storeService));
 		server.addHandler("/pendingstores", new PendingStoresHandler(storeService));
 		server.addHandler("/approvestore", new ApproveStoreHandler(storeService));
 		server.addHandler("/additem",new AddItemPageHandler(productService,storeService));

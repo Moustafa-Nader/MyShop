@@ -62,10 +62,7 @@ public class AllStoresHandler extends RequestHandlerBase {
                 "<body>\n" +
                 "\t<div class=\"form-box\">\n" +
                 "\t\t<label>Store Name</label>\t\n" +
-                "\t</div>\n" +
-                "\t<div class=\"form-box1\">\n" +
-                "\t\t<a href=\"/store/_STORE_NAME_\"><label>_STORE_NAME_</label></a>\n" +
-                "\t</div>\n";
+                "\t</div>\n" ;
         for(IStore store : m_storeservice.getAllStores()) {
         	if(store.isPending()) continue;
             htmlPage += "\t<div class=\"form-box1\">\n" +

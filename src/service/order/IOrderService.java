@@ -10,5 +10,6 @@ public interface IOrderService {
 	public IOrder getOrderById(int orderId);
 	public ArrayList<IOrder> getOrdersByItemId(int itemId);
 	public ArrayList<IOrder> getOrdersByUserId(int userId);
+	public int getOrdersCountByUserId(int userId);
 	public ArrayList<IOrder> getOrdersByStoreId(int storeId);
 }
