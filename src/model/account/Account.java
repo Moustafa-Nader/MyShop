@@ -1,11 +1,24 @@
 package model.account;
 
+import model.Address;
+
 public class Account implements IAccount {
 	int m_id;
 	AccountType m_type;
 	String m_email;
 	String m_username;
 	String m_hash;
+	Address m_address;
+
+	@Override
+	public Address getAddress() {
+		return this.m_address;
+	}
+
+	@Override
+	public void setAddress(Address address) {
+		this.m_address = address;
+	}
 
 	public Account() {}
 
@@ -15,6 +28,16 @@ public class Account implements IAccount {
 		this.m_type = type;
 		this.m_username = username;
 		this.m_hash = hash;
+		this.m_address = null;
+	}
+
+	public Account(AccountType type, String email, String username, String hash, Address address) {
+		this.m_id = 0;
+		this.m_email = email;
+		this.m_type = type;
+		this.m_username = username;
+		this.m_hash = hash;
+		this.m_address = address;
 	}
 
 
