@@ -9,4 +9,6 @@ public interface IItem {
 	public int getProductID();
 	public int getStoreID();
 	public double getPrice();
+	public void setQuantity(int quantity);
+	public int getQuantity();
 }

@@ -5,3 +5,5 @@
 /out
 MyShop.iml
 .settings
+*.ucls
+.vscode

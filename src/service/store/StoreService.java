@@ -6,10 +6,11 @@ import model.Store.Store;
 import model.Store.StoreType;
 import model.item.IItem;
 import model.item.Item;
+import service.IAggregate;
 
 import java.util.ArrayList;
 
-public class StoreService implements IStoreService  {
+public class StoreService implements IStoreService, IAggregate  {
     ArrayList<IStore> m_stores;
     ArrayList<IItem> m_items;
 
@@ -19,11 +20,18 @@ public class StoreService implements IStoreService  {
                                     new Address("a","a",1,1));
                             store.setPending(false);
                             m_stores.add(store);
-                            m_items.add(new Item(0,0,69d));
+                            m_items.add(new Item(0,0,69d, 4));
 
 
     }
+    @Override
+    public void setQuantity(int itemID , int Quantity){
+        for(IItem item : m_items){
+            if(item.getStoreID() == itemID)
+                item.setQuantity(Quantity);
+        }
 
+    }
     @Override
     public void addStore(IStore store) {
     	store.setID(m_stores.size());
@@ -75,5 +83,9 @@ public class StoreService implements IStoreService  {
 				return item;
 		}
 		return null;
+	}
+	@Override
+	public int count() {
+		return m_stores.size();
 	}
 }
