@@ -45,7 +45,7 @@ public class ViewCartHandler extends RequestHandlerBase {
 					"</head>\n" +
                     "<body>\n";
                     if(ctx.getUser().getType() == AccountType.OWNER)
-                        output += "<h2 color=\"red\"> GET STOREOWNER DISCOUNT NOW!</h2><b>";
+                        output += "<h2 color=\"red\"> GET STORE OWNER DISCOUNT NOW!</h2><b>";
                     output += "\t<form  action=\"/makepurchase/" + "\"method=\"get\">\n" ;
                 for(CartItem cartItem : useCart.getCartItems()){
                     double totalprice = m_storeService.getItemByID(cartItem.getItem_id()).getPrice();
@@ -73,6 +73,22 @@ public class ViewCartHandler extends RequestHandlerBase {
                     output += "</h1>\n<b>";
                 }
                 output+="\t\t<div class=\"form-box\">\n" +
+                "<div class =\"form-box\" id=\"address1\">\n" +
+                "\t\t\t<label for=\"m_addresscity\">City: </label>\n" +
+                "\t\t\t<input type=\"text\" name=\"m_addresscity\" id=\"m_addresscity\" placeholder=\"City\">\n" +
+                "\t\t</div>\n" +
+                "\t\t<div class =\"form-box\" id=\"address2\">\n" +
+                "\t\t\t<label for=\"m_streetname\">Street Name: </label>\n" +
+                "\t\t\t<input type=\"text\" name=\"m_streetname\" id=\"m_streetname\" placeholder=\"Street Name\">\n" +
+                "\t\t</div>\n" +
+                "\t\t<div class =\"form-box\" id=\"address3\">\n" +
+                "\t\t\t<label for=\"m_buildingno\">Building No.: </label>\n" +
+                "\t\t\t<input type=\"text\" name=\"m_buildingno\" id=\"m_buildingno\" placeholder=\"Buidling No\">\n" +
+                "\t\t</div>\n" +
+                "\t\t<div class =\"form-box\" id=\"address4\">\n" +
+                "\t\t\t<label for=\"m_apartmentno\">Apartment No: </label>\n" +
+                "\t\t\t<input type=\"text\" name=\"m_apartmentno\" id=\"m_apartmentno\" placeholder=\"Apartment No\">\n" +
+                "\t\t</div>\n" +
                 "\t\t\t<button id=\"makepurchase\" type=\"submit\">Purchase</button>\n" +
                 "\t\t</div>\n" +
                 "\t</form>\n" +

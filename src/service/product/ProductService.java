@@ -21,7 +21,7 @@ public class ProductService implements IProductService, IAggregate {
 		product.setID(0);
 		m_products.add(product);
 		IProduct product1 = new Product(brand,"TestProduct1",13d,"TestCategory1");
-		product.setID(1);
+		product1.setID(1);
 		m_products.add(product1);
 	}
 	

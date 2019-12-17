@@ -2,6 +2,7 @@ package requesthandler;
 
 import java.io.IOException;
 import context.IContext;
+import model.Address;
 import model.account.AccountType;
 import model.cart.Cart;
 import model.cart.CartItem;
@@ -29,6 +30,7 @@ public class MakePurchaseHandler extends RequestHandlerBase {
 			ctx.write("<h1>Unauthorized</h1>".getBytes());
 			return;
 		}
+
 		ICart useCart = (ICart) ctx.getSession().get("cart");
 
 		for (CartItem cartItem : useCart.getCartItems()) {
@@ -39,11 +41,16 @@ public class MakePurchaseHandler extends RequestHandlerBase {
 				return;
 			}
 		}
+
+		ctx.parse();
+
 		for (CartItem cartItem : useCart.getCartItems()) {
 			IItem storeItem = m_storeservice.getItemByID(cartItem.getItem_id());
 			m_storeservice.setQuantity(storeItem.getID(), storeItem.getQuantity() - cartItem.getQuantity());
 			System.out.println(m_storeservice.getItemByID(cartItem.getItem_id()).getQuantity());
-			IOrder order = new Order(storeItem.getID(), ctx.getUser().getID());
+			IOrder order = new Order(storeItem.getID(), ctx.getUser().getID(),new Address(ctx.getParam("m_addresscity"),
+					ctx.getParam("m_streetname"), Integer.valueOf(ctx.getParam("m_buildingno")),
+					Integer.valueOf(ctx.getParam("m_apartmentno"))));
 			m_orderService.addOrder(order);
 		}
 		ctx.getSession().set("cart", new Cart());

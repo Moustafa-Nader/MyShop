@@ -8,12 +8,10 @@ public interface IAccount {
 	void setEmail(String email);
 	void setUsername(String username);
 	void setPassword(String password);
-	void setAddress(Address address);
 	
 	int getID();
 	AccountType getType();
 	String getEmail();
 	String getUsername();
 	String getHash();
-	Address getAddress();
 }
