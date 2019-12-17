@@ -24,5 +24,5 @@ public interface IStoreService {
     public ArrayList<IItem> getItemsByStoreID(int storeID);
     public IItem getItemByID(int itemID);
     public void setQuantity(int itemID , int Quantity);
-    
+    public void removeAction(int storeId, IAction action);
 }

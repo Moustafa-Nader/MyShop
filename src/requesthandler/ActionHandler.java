@@ -43,6 +43,7 @@ public class ActionHandler extends RequestHandlerBase {
 
         else {
             currAction.undo();
+            m_storeService.removeAction(storeID, currAction);
             ctx.write("Removed Item".getBytes());
         }
     }

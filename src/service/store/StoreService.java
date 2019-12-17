@@ -155,5 +155,10 @@ public class StoreService implements IStoreService, IAggregate  {
 	public ArrayList<IAction> getHistory(int storeID) {
 		return this.m_storeHistoryMap.get(storeID);
     }
+	@Override
+	public void removeAction(int storeId, IAction action) {
+		m_storeHistoryMap.get(storeId).remove(action);
+	}
+    
     
 }
