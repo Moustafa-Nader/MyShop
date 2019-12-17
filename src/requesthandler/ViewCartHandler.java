@@ -59,11 +59,11 @@ public class ViewCartHandler extends RequestHandlerBase {
                         discounted = true;
                     }
                     if(ctx.getUser().getType() == AccountType.OWNER){
-                        discountedprice = discountedprice - (totalprice * 0.1);
+                        discountedprice = discountedprice - (totalprice * 0.15);
                         discounted = true;
                     }
                     if(cartItem.getQuantity() >= 2){
-                        discountedprice = discountedprice - (totalprice * 0.15);
+                        discountedprice = discountedprice - (totalprice * 0.10);
                         discounted = true;
                     }
                     if(discounted)
