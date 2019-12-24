@@ -1,28 +1,66 @@
 <head>
-  <style type="text/css">
-          a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-
-    text-decoration: none;
-    color: blue;
-    background-color: initial;
-    }
   
+  <style type="text/css">
+    a.button {
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      appearance: button;
+
+      text-decoration: none;
+      color: blue;
+      background-color: initial;
+    }
   </style>
+  <script type="text/javascript">
+   
+    function getBrand() {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200 ) {
+          //alert(this.responseText);
+          //document.getElementById("txt").innerHTML = this.responseText;
+          var words = this.responseText;
+          var words_arr = words.split(' ');
+          var sel = document.getElementById('brand');
+          var fragment = document.createDocumentFragment();
+          words_arr.forEach(function (str, index) {
+            var opt = document.createElement('option');
+            opt.innerHTML = str;
+            opt.value = str;
+            fragment.appendChild(opt);
+          });
+          sel.appendChild(fragment);
+         
+        }
+      };
+      request.open("GET", "/getbrandhandler", true);
+      request.send();
+      
+    }
+    window.onload = function () {
+      getBrand();
+    };
+
+  </script>
 </head>
+
 <body>
   <button> <a href="/signup" class="button">signup </a> </button>
   <button><a href="/logout" class="button">logout </a> </button>
   <button><a href="/addproduct" class="button">add product </a> </button>
   <button><a href="/addbrand" class="button">add brand </a> <br></button>
 
-<form action="/products" method="get">
-  <p> Brand: </p> <input type="text" name="m_bname"><br>
-  <p> Name: </p> <input type="text" name="m_name"><br>
-  <p> Price: </p> <input type="text" name="m_price"><br>
-  <p> Category: </p> <input type="text" name="m_category"><br>
-  <input type="submit" value="Submit">
-</form>
+
+  <form action="/products" method="get">
+    <p> Brand: </p>
+    <select id="brand" name="m_bname">
+      <option value="" selected disabled hidden>Choose here</option>
+    </select>
+    <br>
+    <p> Name: </p> <input type="text" name="m_name"><br>
+    <p> Price: </p> <input type="text" name="m_price"><br>
+    <p> Category: </p> <input type="text" name="m_category"><br>
+
+    <input type="submit" value="Submit">
+  </form>
 </body>

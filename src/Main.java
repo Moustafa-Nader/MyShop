@@ -55,7 +55,7 @@ public class Main {
 		server.addHandler("/viewcollaborators", new ViewCollaboratorsHandler(storeService, accountService));
 		server.addHandler("/viewstorehistory", new ViewStoreHistoryHandler(storeService));
 		server.addHandler("/action", new ActionHandler(storeService));
-
+		server.addHandler("/getbrandhandler", new GetBrandHandler(brandService));
 		server.start();
 	}
 }

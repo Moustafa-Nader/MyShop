@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="/static/cart.css">
-    <link rel="stylesheet" type="text/css" href="/static/forms.css">    
-    
-	</style>
-</head>
-<body>
-    <a href="/viewcart">
-    <div class="icon-cart" style="clear: right; float: right" >
-        <div class="cart-line-1" style="background-color: #2CC3B5"></div>
-        <div class="cart-line-2" style="background-color: #2CC3B5"></div>
-        <div class="cart-line-3" style="background-color: #2CC3B5"></div>
-        <div class="cart-wheel" style="background-color: #2CC3B5"></div>
-      </div>
-    </a>
-    
+    <link rel="stylesheet" type="text/css" href="/static/forms.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 
-<button> <a href="/signup" class="button">signup </a> </button><br>
-<button><a href="/logout" class="button">logout </a> </button><br>
-<button><a href="/addproduct" class="button">add product </a> </button><br>
-<button><a href="/addbrand" class="button">add brand </a></button><br>
-<button><a href="/addstore" class="button">add store </a></button><br>
-<button><a href="/allstores" class="button">view stores </a></button><br>
-<button><a href="/pendingstores" class="button">seeing pending stores </a></button><br>
-<button><a href="/addstatistic" class="button">add statistic </a></button><br>
+    </style>
+    
+</head>
+
+<body>
+    <div class="main">
+        <div class="thinbar"></div>
+
+        <div class="topbar">
+            <div class="header_right">
+                <div class="log_reg_button">
+                    <a href="/signup" class="button">signup /</a>
+                    <a href="/logout" class="button">logout </a>
+                </div>
+            </div>
+            <div class="header_right">
+                <div class="cart_btn">
+                    <a href="/viewcart">
+                        <div class="icon-cart" style="clear: right; float: right">
+                            <div class="cart-line-1" style="background-color: #2CC3B5"></div>
+                            <div class="cart-line-2" style="background-color: #2CC3B5"></div>
+                            <div class="cart-line-3" style="background-color: #2CC3B5"></div>
+                            <div class="cart-wheel" style="background-color: #2CC3B5"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="header">
+            <div class="container">
+
+                <div class="logo">
+                    <img src="/static/logorect.png" alt="">
+                </div>
+                <div class="navbar">
+
+                    <a href="/allstores" class="button">STORES </a>
+                    <a href="/pendingstores" class="button">PENDING </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="header_left">
+
+
+            <button><a href="/addstatistic" class="button">add statistic </a></button>
+            <br>
+            <button><a href="/addproduct" class="button">add product</a></button>
+            <br>
+            <button><a href="/addbrand" class="button">add brand </a></button>
+            <br>
+            <button><a href="/addstore" class="button">add store </a></button>
+            <div id="txt"></div>
+        </div>
+
+
+    </div>
+
 </body>

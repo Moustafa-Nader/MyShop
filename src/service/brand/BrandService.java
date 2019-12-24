@@ -7,6 +7,10 @@ import service.IAggregate;
 
 public class BrandService implements IBrandService, IAggregate {
     ArrayList<IBrand> m_brands;
+    
+    public ArrayList<IBrand> getBrandList(){
+        return this.m_brands;
+    }
 
     public BrandService() {
         this.m_brands = new ArrayList<>();
