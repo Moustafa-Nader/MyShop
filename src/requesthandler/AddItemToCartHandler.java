@@ -40,7 +40,7 @@ public class AddItemToCartHandler extends RequestHandlerBase {
                 return;
             }
 
-            if(quantity < 0 || quantity > item.getQuantity()) {
+            if(quantity <= 0 || quantity > item.getQuantity()) {
                 ctx.write("<h1>item addition failed, invalid amount</h1>".getBytes());
                 return;
             }

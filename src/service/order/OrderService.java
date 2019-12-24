@@ -56,6 +56,11 @@ public class OrderService implements IOrderService, IAggregate {
 		return result;
 	}
 
+	public int getOrdersCountByUserId(int userId) {
+		ArrayList<IOrder> result = getOrdersByUserId(userId);
+		return result.size();
+	}
+
 	@Override
 	public ArrayList<IOrder> getOrdersByStoreId(int storeId) {
 		ArrayList<IOrder> result = new ArrayList<IOrder>();

@@ -1,5 +1,7 @@
 package model.account;
 
+import model.Address;
+
 public interface IAccount {
 	void setID(int id);
 	void setType(AccountType type);

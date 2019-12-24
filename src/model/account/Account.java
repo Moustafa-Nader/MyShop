@@ -1,11 +1,14 @@
 package model.account;
 
+import model.Address;
+
 public class Account implements IAccount {
 	int m_id;
 	AccountType m_type;
 	String m_email;
 	String m_username;
 	String m_hash;
+
 
 	public Account() {}
 

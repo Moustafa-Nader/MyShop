@@ -20,6 +20,9 @@ public class ProductService implements IProductService, IAggregate {
 		IProduct product = new Product(brand,"TestProduct",13d,"TestCategory");
 		product.setID(0);
 		m_products.add(product);
+		IProduct product1 = new Product(brand,"TestProduct1",13d,"TestCategory1");
+		product1.setID(1);
+		m_products.add(product1);
 	}
 	
 	@Override

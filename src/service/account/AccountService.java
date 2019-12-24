@@ -64,4 +64,14 @@ public class AccountService implements IAccountService, IAggregate {
 	public int count() {
 		return m_accounts.size();
 	}
+
+	@Override
+	public IAccount getByID(int Id) {
+		for(IAccount acc : m_accounts)
+		{
+			if(acc.getID() == Id)
+				return acc;
+		}
+		return null;
+	}
 }
