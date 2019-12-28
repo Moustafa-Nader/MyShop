@@ -4,6 +4,7 @@ import context.IContext;
 import model.Store.IStore;
 import model.item.IItem;
 import model.product.IProduct;
+import service.ServiceRepo;
 import service.product.IProductService;
 import service.product.ProductService;
 import service.store.IStoreService;
@@ -13,14 +14,12 @@ import java.util.ArrayList;
 
 public class AddItemPageHandler extends RequestHandlerBase {
 
-    private IProductService m_productservice;
     private IStoreService m_storeservice;
     private ArrayList<IProduct> m_products;
 
-    public AddItemPageHandler(IProductService  productService, IStoreService storeService){
-        this.m_productservice = productService;
-        this.m_storeservice = storeService;
-        this.m_products = productService.getAllProducts();
+    public AddItemPageHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
+        this.m_products = ServiceRepo.getProductService().getAllProducts();
     }
 
     @Override

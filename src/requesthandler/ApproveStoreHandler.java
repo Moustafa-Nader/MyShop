@@ -5,13 +5,14 @@ import java.io.IOException;
 import context.IContext;
 import model.Store.IStore;
 import model.account.AccountType;
+import service.ServiceRepo;
 import service.store.IStoreService;
 
 public class ApproveStoreHandler extends RequestHandlerBase {
 	private IStoreService m_storeservice;
 
-    public ApproveStoreHandler(IStoreService storeService){
-        this.m_storeservice = storeService;
+    public ApproveStoreHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

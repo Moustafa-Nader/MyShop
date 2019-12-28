@@ -3,13 +3,17 @@ package requesthandler;
 import context.IContext;
 import cookie.Cookie;
 import model.account.IAccount;
+import service.ServiceRepo;
 import service.account.IAccountService;
 
 import java.io.IOException;
 
 public class LoginHandler extends RequestHandlerBase {
     IAccountService m_service;
-    public LoginHandler(IAccountService service){ this.m_service = service; }
+    public LoginHandler()
+    {
+    	this.m_service = ServiceRepo.getAccountService();
+    }
     @Override
     public void handle(IContext ctx) throws IOException {
     	if(ctx.getUser() != null) {

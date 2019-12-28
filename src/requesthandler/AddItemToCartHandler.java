@@ -5,6 +5,7 @@ import model.cart.Cart;
 import model.cart.CartItem;
 import model.cart.ICart;
 import model.item.IItem;
+import service.ServiceRepo;
 import service.store.IStoreService;
 import service.store.StoreService;
 
@@ -14,8 +15,8 @@ public class AddItemToCartHandler extends RequestHandlerBase {
 
     IStoreService m_storeservice;
 
-    public AddItemToCartHandler(IStoreService storeService){
-        this.m_storeservice = storeService;
+    public AddItemToCartHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

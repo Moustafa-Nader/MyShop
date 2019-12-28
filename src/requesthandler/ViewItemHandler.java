@@ -5,6 +5,7 @@ import java.io.IOException;
 import context.IContext;
 import model.item.IItem;
 import model.product.IProduct;
+import service.ServiceRepo;
 import service.product.IProductService;
 import service.statistics.IStatisticsService;
 import service.store.IStoreService;
@@ -14,10 +15,10 @@ public class ViewItemHandler extends RequestHandlerBase {
 	private IProductService m_productService;
 	private IStatisticsService m_statisticsService;
 
-    public ViewItemHandler(IStoreService storeService, IProductService productService, IStatisticsService statisticsService){
-        this.m_storeService = storeService;
-        this.m_productService = productService;
-        this.m_statisticsService = statisticsService;
+    public ViewItemHandler(){
+        this.m_storeService = ServiceRepo.getStoreService();
+        this.m_productService = ServiceRepo.getProductService();
+        this.m_statisticsService = ServiceRepo.getStatisticsService();
 	}
 
 	public void handle(IContext ctx) throws IOException {

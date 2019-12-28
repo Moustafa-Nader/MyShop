@@ -10,6 +10,8 @@ import model.cart.ICart;
 import model.item.IItem;
 import model.order.IOrder;
 import model.order.Order;
+import service.ServiceRepo;
+import service.order.IOrderService;
 import service.order.OrderService;
 import service.product.IProductService;
 import service.store.IStoreService;
@@ -17,11 +19,11 @@ import service.store.IStoreService;
 public class MakePurchaseHandler extends RequestHandlerBase {
 
 	private IStoreService m_storeservice;
-	private OrderService m_orderService;
+	private IOrderService m_orderService;
 
-	public MakePurchaseHandler(IStoreService storeService, OrderService orderService) {
-		this.m_storeservice = storeService;
-		this.m_orderService = orderService;
+	public MakePurchaseHandler() {
+		this.m_storeservice = ServiceRepo.getStoreService();
+		this.m_orderService = ServiceRepo.getOrderService();
 	}
 
 	@Override

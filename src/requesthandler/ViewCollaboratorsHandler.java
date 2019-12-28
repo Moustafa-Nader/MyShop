@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import context.IContext;
 import model.Store.IStore;
+import service.ServiceRepo;
 import service.account.IAccountService;
 import service.store.IStoreService;
 
@@ -12,9 +13,9 @@ public class ViewCollaboratorsHandler extends RequestHandlerBase {
 	IStoreService m_storeService;
 	IAccountService m_accountService;
 	
-	public ViewCollaboratorsHandler(IStoreService storeService, IAccountService accountService) {
-		m_storeService = storeService;
-		m_accountService = accountService;
+	public ViewCollaboratorsHandler() {
+		m_storeService = ServiceRepo.getStoreService();
+		m_accountService = ServiceRepo.getAccountService();
 	}
 	
 	@Override
