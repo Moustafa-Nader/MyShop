@@ -5,6 +5,7 @@ import model.Store.IStore;
 import model.item.IItem;
 import model.item.Item;
 import model.product.IProduct;
+import service.ServiceRepo;
 import service.product.IProductService;
 import service.store.IStoreService;
 
@@ -12,12 +13,10 @@ import java.io.IOException;
 
 public class AddItemHandler extends RequestHandlerBase {
 
-    private IProductService m_productservice;
     private IStoreService m_storeservice;
 
-    public AddItemHandler(IProductService productService, IStoreService storeService) {
-        m_productservice = productService;
-        m_storeservice = storeService;
+    public AddItemHandler() {
+        m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

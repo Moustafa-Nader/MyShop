@@ -3,6 +3,7 @@ package requesthandler;
 import context.IContext;
 import model.Store.IStore;
 import model.account.AccountType;
+import service.ServiceRepo;
 import service.store.IStoreService;
 import service.store.StoreService;
 
@@ -12,8 +13,8 @@ import java.util.ArrayList;
 public class PendingStoresHandler extends RequestHandlerBase {
     private IStoreService m_storeservice;
 
-    public PendingStoresHandler(IStoreService storeService){
-        this.m_storeservice = storeService;
+    public PendingStoresHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

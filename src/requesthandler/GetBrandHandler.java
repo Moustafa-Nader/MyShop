@@ -3,6 +3,7 @@ package requesthandler;
 import context.IContext;
 import model.Store.IStore;
 import model.brand.IBrand;
+import service.ServiceRepo;
 import service.brand.IBrandService;
 import service.store.IStoreService;
 import service.store.StoreService;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 public class GetBrandHandler extends RequestHandlerBase {
     private IBrandService m_brandservice;
 
-    public GetBrandHandler(IBrandService bService) {
-        this.m_brandservice = bService;
+    public GetBrandHandler() {
+        this.m_brandservice = ServiceRepo.getBrandService();
 
     }
     @Override
