@@ -1,5 +1,6 @@
 <head>
-  
+  <link rel="stylesheet" type="text/css" href="/static/inputform.css">
+
   <style type="text/css">
     a.button {
       -webkit-appearance: button;
@@ -12,11 +13,11 @@
     }
   </style>
   <script type="text/javascript">
-   
+
     function getBrand() {
       var request = new XMLHttpRequest();
       request.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200 ) {
+        if (this.readyState == 4 && this.status == 200) {
           //alert(this.responseText);
           //document.getElementById("txt").innerHTML = this.responseText;
           var words = this.responseText;
@@ -30,12 +31,12 @@
             fragment.appendChild(opt);
           });
           sel.appendChild(fragment);
-         
+
         }
       };
       request.open("GET", "/getbrandhandler", true);
       request.send();
-      
+
     }
     window.onload = function () {
       getBrand();
@@ -49,18 +50,21 @@
   <button><a href="/logout" class="button">logout </a> </button>
   <button><a href="/addproduct" class="button">add product </a> </button>
   <button><a href="/addbrand" class="button">add brand </a> <br></button>
+  <div class="iwrapper">
+    <div class="icontainer">
 
+      <form action="/products" method="get">
+        <p> Brand: </p>
+        <select id="brand" name="m_bname">
+          <option value="" selected disabled hidden>Choose here</option>
+        </select>
+        <br><br>
+        <p> Name: </p> <input type="text" name="m_name"><br><br>
+        <p> Price: </p> <input type="text" name="m_price"><br><br>
+        <p> Category: </p> <input type="text" name="m_category"><br><br>
 
-  <form action="/products" method="get">
-    <p> Brand: </p>
-    <select id="brand" name="m_bname">
-      <option value="" selected disabled hidden>Choose here</option>
-    </select>
-    <br>
-    <p> Name: </p> <input type="text" name="m_name"><br>
-    <p> Price: </p> <input type="text" name="m_price"><br>
-    <p> Category: </p> <input type="text" name="m_category"><br>
-
-    <input type="submit" value="Submit">
-  </form>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
 </body>
