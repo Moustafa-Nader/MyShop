@@ -50,6 +50,7 @@ public class Main {
 		server.addHandler("/viewstorehistory", 	new ViewStoreHistoryHandler());
 		server.addHandler("/action", 			new ActionHandler());
 		server.addHandler("/getbrandhandler", 	new GetBrandHandler());
+		
 		server.start();
 	}
 }
