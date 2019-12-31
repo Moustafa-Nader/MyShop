@@ -4,13 +4,14 @@ import java.io.IOException;
 
 import context.IContext;
 import model.Store.IStore;
+import service.ServiceRepo;
 import service.store.IStoreService;
 
 public class AddCollaboratorHandler extends RequestHandlerBase {
 	IStoreService m_storeService;
 	
-	public AddCollaboratorHandler(IStoreService storeService) {
-		m_storeService = storeService;
+	public AddCollaboratorHandler() {
+		m_storeService = ServiceRepo.getStoreService();
 	}
 	
 	@Override

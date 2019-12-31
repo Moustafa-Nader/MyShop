@@ -6,22 +6,18 @@ import java.util.HashMap;
 import context.IContext;
 import model.account.AccountType;
 import service.IAggregate;
+import service.ServiceRepo;
 
 public class AddStatisticHandler extends RequestHandlerBase {
 	HashMap<String, IAggregate> m_aggregateMap;
-	public AddStatisticHandler(
-			IAggregate accountService,
-			IAggregate storeService,
-			IAggregate productService,
-			IAggregate orderService,
-			IAggregate brandService) {
+	public AddStatisticHandler() {
 		
 		m_aggregateMap = new HashMap<String, IAggregate>();
-		m_aggregateMap.put("accounts", accountService);
-		m_aggregateMap.put("stores", storeService);
-		m_aggregateMap.put("products", productService);
-		m_aggregateMap.put("orders", orderService);
-		m_aggregateMap.put("brands", brandService);
+		m_aggregateMap.put("accounts", (IAggregate) ServiceRepo.getAccountService());
+		m_aggregateMap.put("stores", (IAggregate) ServiceRepo.getStoreService());
+		m_aggregateMap.put("products", (IAggregate) ServiceRepo.getProductService());
+		m_aggregateMap.put("orders", (IAggregate) ServiceRepo.getOrderService());
+		m_aggregateMap.put("brands", (IAggregate) ServiceRepo.getBrandService());
 	}
 	
 	@Override

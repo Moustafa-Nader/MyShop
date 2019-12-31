@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import context.IContext;
 import model.Action.IAction;
 import model.Store.IStore;
+import service.ServiceRepo;
 import service.account.IAccountService;
 import service.store.IStoreService;
 
@@ -13,8 +14,8 @@ public class ViewStoreHistoryHandler extends RequestHandlerBase {
     IStoreService m_storeService;
     
 
-    public ViewStoreHistoryHandler(IStoreService storeService) {
-        m_storeService = storeService;
+    public ViewStoreHistoryHandler() {
+        m_storeService = ServiceRepo.getStoreService();
       
     }
 

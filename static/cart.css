@@ -1,13 +1,15 @@
 
   .icon-cart {
-    width: 96px;
-    height: 96px;
+    width: 48px;
+    height: 48px;
     position: absolute;
     overflow: hidden;
     top: 0;
     right: 0;
+    margin-right: 150px;
+    margin-top: 35px;
   }
-  
+
   .icon-cart .cart-line-1 {
     width: 15%;
     height: 7%;
@@ -105,5 +107,13 @@
     bottom: 0;
   }
 
-
+.cart_btn{
+  width: 100px;
+  height: 50px;
+  background-color: rgb(9, 68, 63);
+  float: right;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-right: -225px;
+}
   

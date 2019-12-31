@@ -10,6 +10,7 @@ import model.cart.CartItem;
 import model.cart.ICart;
 import model.item.IItem;
 import model.product.IProduct;
+import service.ServiceRepo;
 import service.order.IOrderService;
 import service.product.IProductService;
 import service.statistics.IStatisticsService;
@@ -19,10 +20,10 @@ public class ViewCartHandler extends RequestHandlerBase {
     private IProductService m_productService;
     private IOrderService m_orderService;
     private IStoreService m_storeService;
-    public ViewCartHandler(IProductService productService, IOrderService orderService, IStoreService storeService){
-        this.m_orderService = orderService;
-        this.m_productService = productService;
-        this.m_storeService = storeService;
+    public ViewCartHandler(){
+        this.m_orderService = ServiceRepo.getOrderService();
+        this.m_productService = ServiceRepo.getProductService();
+        this.m_storeService = ServiceRepo.getStoreService();
     }
 
 	public void handle(IContext ctx) throws IOException {

@@ -7,6 +7,7 @@ import context.IContext;
 import model.Store.IStore;
 import model.item.IItem;
 import model.product.IProduct;
+import service.ServiceRepo;
 import service.product.IProductService;
 import service.statistics.IStatisticsService;
 import service.store.IStoreService;
@@ -16,10 +17,10 @@ public class ViewStoreHandler extends RequestHandlerBase {
 	private IProductService m_productservice;
 	private IStatisticsService m_statisticsservice;
 
-    public ViewStoreHandler(IStoreService storeService, IProductService productService, IStatisticsService statisticsService){
-        this.m_storeservice = storeService;
-        this.m_productservice = productService;
-        this.m_statisticsservice = statisticsService;
+    public ViewStoreHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
+        this.m_productservice = ServiceRepo.getProductService();
+        this.m_statisticsservice = ServiceRepo.getStatisticsService();
     }
     
     public void handle(IContext ctx) throws IOException {

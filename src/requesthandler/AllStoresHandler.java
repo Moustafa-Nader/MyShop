@@ -2,6 +2,7 @@ package requesthandler;
 
 import context.IContext;
 import model.Store.IStore;
+import service.ServiceRepo;
 import service.store.IStoreService;
 import service.store.StoreService;
 
@@ -12,8 +13,8 @@ public class AllStoresHandler extends RequestHandlerBase {
 
     private IStoreService m_storeservice;
 
-    public AllStoresHandler(IStoreService storeService){
-        this.m_storeservice = storeService;
+    public AllStoresHandler(){
+        this.m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

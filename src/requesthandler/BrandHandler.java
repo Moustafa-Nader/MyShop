@@ -5,13 +5,14 @@ import java.io.IOException;
 import context.IContext;
 import model.account.AccountType;
 import model.brand.Brand;
+import service.ServiceRepo;
 import service.brand.IBrandService;
 
 public class BrandHandler extends RequestHandlerBase {
     private IBrandService m_brandservice;
 
-    public BrandHandler(IBrandService bService) {
-        this.m_brandservice = bService;
+    public BrandHandler() {
+        this.m_brandservice = ServiceRepo.getBrandService();
 
     }
 

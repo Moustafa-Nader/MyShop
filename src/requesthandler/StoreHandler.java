@@ -5,6 +5,7 @@ import model.Address;
 import model.Store.Store;
 import model.Store.StoreType;
 import model.account.AccountType;
+import service.ServiceRepo;
 import service.store.IStoreService;
 import service.store.StoreService;
 
@@ -13,8 +14,8 @@ import java.io.IOException;
 public class StoreHandler extends RequestHandlerBase {
 
     private IStoreService m_storeservice;
-    public StoreHandler(IStoreService storeService) {
-        this.m_storeservice = storeService;
+    public StoreHandler() {
+        this.m_storeservice = ServiceRepo.getStoreService();
     }
 
     @Override

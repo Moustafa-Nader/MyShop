@@ -25,7 +25,8 @@ public class HomeHandler extends RequestHandlerBase {
     private void showHome(IContext ctx) throws IOException {
     	String username = ctx.getUser().getUsername();
     	String type = ctx.getUser().getType().toString();
-    	String htmlData = "<h1> welcome back " + username + "(" + type + ")!</h1> <br>";
+		String htmlData ="";
+		//htmlData = "<h1> welcome back " + username + "(" + type + ")!</h1> <br>";
     	htmlData += m_resources.htmlRead("/src/Components/home.html");
     	ctx.write(htmlData.getBytes());
     }

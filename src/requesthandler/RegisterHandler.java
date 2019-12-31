@@ -4,6 +4,7 @@ import context.IContext;
 import model.account.Account;
 import model.account.IAccount;
 import model.account.AccountType;
+import service.ServiceRepo;
 import service.account.AccountService;
 import service.account.IAccountService;
 
@@ -13,9 +14,9 @@ public class RegisterHandler extends RequestHandlerBase {
 
     IAccountService m_service;
 
-    public RegisterHandler(IAccountService service)
+    public RegisterHandler()
     {
-        this.m_service = service;
+        this.m_service = ServiceRepo.getAccountService();
     }
     @Override
     public void handle(IContext ctx) throws IOException {

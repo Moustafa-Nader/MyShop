@@ -5,13 +5,14 @@ import java.io.IOException;
 import context.IContext;
 import model.Store.IStore;
 import model.account.AccountType;
+import service.ServiceRepo;
 import service.store.IStoreService;
 
 public class AddCollaboratorPageHandler extends RequestHandlerBase {
 	IStoreService m_storeService;
 	
-	public AddCollaboratorPageHandler(IStoreService storeService) {
-		m_storeService = storeService;
+	public AddCollaboratorPageHandler() {
+		m_storeService = ServiceRepo.getStoreService();
 	}
 	
 	@Override

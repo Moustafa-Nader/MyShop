@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  .iwrapper{
+    min-height:100vh;
+    background-color:#291a29;
+    font-family: 'Open Sans', sans-serif;
+    padding-top:40px;
+  }
+  .icontainer{
+    max-width:400px;
+    margin:100 auto;
+    background-color:#5a2e5c;
+    text-align:center;
+    padding:100px 2;
+    box-shadow:0 0 20px rgba(160, 19, 241, 0.4);
+    border-radius:3px;
+  }
+  form{
+    max-width:250px;
+    margin:5 auto;
+    text-align:left;
+    color: #c5b7f8;
+  }
+  
+  div.group{
+    margin-top:15px;
+  }
+  label{
+    display:block;
+    margin-bottom:5px;
+    
+  }
+  div.group input{
+    width:100%;
+    padding:10px 4px;
+    outline:none;
+  }
+  input[type="submit"]{
+    
+    padding:15px 50px;
+    outline:none;
+    border:None;
+    background-color:#00a6ac;
+    color:white;
+    transition:all .3s ease-in-out;
+  }
+  input[type="submit"]:hover{
+    cursor:pointer;
+    box-shadow:0 10px 15px -5px rgba(0,0,0,0.4);
+  }

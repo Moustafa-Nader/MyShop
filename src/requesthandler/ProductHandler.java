@@ -5,6 +5,7 @@ import model.account.AccountType;
 import model.brand.Brand;
 import model.brand.IBrand;
 import model.product.*;
+import service.ServiceRepo;
 import service.brand.IBrandService;
 import service.product.IProductService;
 import java.io.IOException;
@@ -13,9 +14,9 @@ public class ProductHandler extends RequestHandlerBase {
     IProductService m_service;
     private IBrandService m_brandservice;
 
-    public ProductHandler(IProductService service,IBrandService bService) {
-        this.m_service = service;
-        this.m_brandservice = bService;
+    public ProductHandler() {
+        this.m_service = ServiceRepo.getProductService();
+        this.m_brandservice = ServiceRepo.getBrandService();
     }
 
     @Override
